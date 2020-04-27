@@ -91,20 +91,35 @@ $authUrl = $client->createAuthUrl();
 
     if (isset($_POST["action"])) {
         if ($_POST["action"] == "login") {
-            $login = $conn->real_escape_string($_POST['login']);
-            $password = "SELECT password, secret FROM Registracia WHERE login='$login'";
+            $query = "SELECT password, secret FROM Registracia WHERE login=?";
             $passwd = hash('sha256', ($_POST['password']));
             $googleAuthCode = $_POST["2fa"];
-            $result = $conn->query($password);
+            $stmt = $conn->prepare($query);
 
-            if ($row = $result->fetch_assoc()) {
+            if (!$stmt) {
+                die("Db error: " . $conn->error);
+            }
+            $stmt->bind_param('s', $_GET['password']);
+            if (!$stmt->execute()) {
+                die("Db error: " . $stmt->error);
+            }
+            $qresult = $stmt->get_result();
+
+            if ($row = $qresult->fetch_assoc()) {
                 if ($passwd == $row["password"]) {
                     if ($authenticator->verifyCode($row["secret"], $googleAuthCode, 1)) {
                         $type = 0;
                         $date = date("Y-m-d H:i:s");
-                        $query = "INSERT INTO Prihlasenia (time, login, accessType) VALUES ('$date','$login','$type')";
-                        if (!$conn->query($query)) {
-                            echo $conn->error;
+
+
+                        $query  = "INSERT INTO Prihlasenia (time, login, accessType) VALUES (?, ?, ?)";
+                        $stmt = $conn->prepare($query);
+                        if (!$stmt) {
+                            die("Db error: " . $conn->error);
+                        }
+                        $stmt->bind_param('sss', $date, $login, $type);
+                        if (!$stmt->execute()) {
+                            die("Db error: " . $stmt->error);
                         } else {
                             $_SESSION["login"] = $login;
                             $_SESSION["accessType"] = $type;
@@ -138,9 +153,14 @@ $authUrl = $client->createAuthUrl();
                     $login = $ldapuid;
                     $type = 1;
                     $date = date("Y-m-d H:i:s");
-                    $query = "INSERT INTO Prihlasenia (time, login, accessType) VALUES ('$date','$login','$type')";
-                    if (!$conn->query($query)) {
-                        echo $conn->error;
+                    $query = "INSERT INTO Prihlasenia (time, login, accessType) VALUES (?, ?, ?)";
+                    $stmt = $conn->prepare($query);
+                    if (!$stmt) {
+                        die("Db error: " . $conn->error);
+                    }
+                    $stmt->bind_param('sss', $date, $login, $type);
+                    if (!$stmt->execute()) {
+                        die("Db error: " . $stmt->error);
                     } else {
                         $_SESSION["login"] = $login;
                         $_SESSION["accessType"] = $type;
@@ -156,9 +176,16 @@ $authUrl = $client->createAuthUrl();
         $login = $gprofile["email"];
         $type = 2;
         $date = date("Y-m-d H:i:s");
-        $query = "INSERT INTO Prihlasenia (time, login, accessType) VALUES ('$date','$login','$type')";
-        if (!$conn->query($query)) {
-            echo $conn->error;
+
+
+        $query = "INSERT INTO Prihlasenia (time, login, accessType) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($query);
+        if (!$stmt) {
+            die("Db error: " . $conn->error);
+        }
+        $stmt->bind_param('sss', $date, $login, $type);
+        if (!$stmt->execute()) {
+            die("Db error: " . $stmt->error);
         } else {
             $_SESSION["login"] = $login;
             $_SESSION["accessType"] = $type;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sk">
+
 <head>
     <title>Alica Ondreakova Page</title>
 
@@ -21,8 +22,9 @@ $secret = $_SESSION['authenticatorSecret'];
 
 $website = 'http://wt221.fei.stuba.sk:8221/web2_final/index.php';
 $title = 'Zadanie 3';
-$qrCodeUrl = $authenticator->getQRCodeGoogleUrl($title, $secret,$website);
+$qrCodeUrl = $authenticator->getQRCodeGoogleUrl($title, $secret, $website);
 ?>
+
 <body>
 
     <form action="registration.php" method="post" id="registration">
@@ -64,22 +66,54 @@ $qrCodeUrl = $authenticator->getQRCodeGoogleUrl($title, $secret,$website);
             $password = $conn->real_escape_string($_POST['password']);
             $login = $conn->real_escape_string($_POST['login']);
             $password = hash('sha256', $password);
-            $existing = $conn->query("SELECT * FROM Registracia WHERE login='$login'");
+            $result = $conn->query("SELECT * FROM Registracia WHERE login=?");
+
+            $stmt = $conn->prepare($result);
+            if (!$stmt) {
+                die("Db error: " . $conn->error);
+            }
+            $stmt->bind_param('s', $login);
+            if (!$stmt->execute()) {
+                die("Db error: " . $stmt->error);
+            }
+
+            $qresult = $stmt->get_result();
+
             if ($authenticator->verifyCode($secret, $_POST['code'], 2)) {
 
                 if ($existing->num_rows != 0) {
                     echo "Login already exists";
                 } else {
 
-                    $query = "INSERT INTO Registracia ( name, surname, email, login, password, secret) VALUES ('$name','$surname','$email','$login','$password','$secret')";
+                    /*
+                     $query = "INSERT INTO geolocation( ip, lat, lon, country, capital, region, country_code, local, date, page, city, countryflag) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    if (!$stmt) {
+        die("Db error: ". $conn->error);
+    }
+    $stmt->bind_param("ssssssssssss", $ip, $lat, $lon, $country, $capital, $region, $country_code,$local,$date,$page, $city, $country_flag);
+    
+    if (!$stmt->execute()) {
+        die("Db error: ". $stmt->error);
+    }
+                     
+                     */
+                    $query = "INSERT INTO Registracia ( name, surname, email, login, password, secret) VALUES (?, ?, ?, ?, ?, ?)";
+                    $stmt = $conn->prepare($query);
+                    if (!$stmt) {
+                        die("Db error: " . $conn->error);
+                    }
+                    $stmt->bind_param("ssssss",$name,$surname,$email,$login,$password,$secret);
 
+                    if (!$stmt->execute()) {
+                        die("Db error: " . $stmt->error);
+                    }
                     if (!$conn->query(($query))) {
                         echo "Registration failed";
                     } else {
                         header("Location: index.php?registration=success");
                     }
                 }
-
             } else {
                 echo "Bad authenticator code";
             }

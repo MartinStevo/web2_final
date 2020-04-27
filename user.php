@@ -67,9 +67,32 @@ if (!isset($_SESSION["login"])) {
     </table>
     <?php
     $login = $_SESSION["login"];
-    $accessType = $_SESSION["accessType"];
-    $loginsResult = $conn->query("SELECT time FROM Prihlasenia WHERE login='$login' AND accessType='$accessType' ORDER BY time DESC");
-    if (!$loginsResult) {
+    $accessType= $_SESSION["accessType"];
+    //$loginsResult = $conn->query("SELECT time FROM Prihlasenia WHERE login='$login' AND accessType='$accessType' ORDER BY time DESC");
+   /*
+   $stmt = $conn->prepare($query);
+    if (!$stmt) {
+        die("Db error: " . $conqre$qresult  }
+    $stmt->bind_param('s', $_GET['country']);
+    if (!$stmt->execute()) {
+        die("Db error: " . $stmt->error);
+    }
+
+    $qresult = $stmt->get_result();
+    $result = array();
+   */
+    $loginsResult = $conn->query("SELECT time FROM Prihlasenia WHERE login=? AND accessType=? ORDER BY time DESC");
+    $stmt = $conn->prepare($loginsResult);
+    if (!$stmt) {
+        die("Db error: " . $conn->error);
+    }
+    $stmt->bind_param('ss',$login,$accessType);
+    if (!$stmt->execute()) {
+        die("Db error: " . $stmt->error);
+    }
+
+    $qresult = $stmt->get_result();
+    if (!$qresult) {
         echo $conn->error;
     }
     ?>
@@ -78,7 +101,7 @@ if (!isset($_SESSION["login"])) {
         <tr>
             <th>Time</th>
         </tr>
-        <?php while ($row = $loginsResult->fetch_assoc()) : ?>
+        <?php while ($row = $qresult->fetch_assoc()) : ?>
             <tr><td><?php echo date("d. m. Y H:i:s", strtotime($row['time'])); ?></td></tr>
         <?php endwhile; ?>
     </table>
