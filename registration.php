@@ -12,7 +12,8 @@
 </head>
 <?php
 session_start();
-require_once('../../google/GoogleAuthenticator-1.0.1/PHPGangsta/GoogleAuthenticator.php');
+require_once($auth_php);
+
 $authenticator = new PHPGangsta_GoogleAuthenticator();
 
 if (empty($_SESSION['authenticatorSecret'])) {
@@ -20,7 +21,8 @@ if (empty($_SESSION['authenticatorSecret'])) {
 }
 $secret = $_SESSION['authenticatorSecret'];
 
-$website = 'http://wt221.fei.stuba.sk:8221/web2_final/index.php';
+$website = $red_uri;
+
 $title = 'Final project';
 $qrCodeUrl = $authenticator->getQRCodeGoogleUrl($title, $secret, $website);
 ?>

@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: index.php?login=none");
+} else if (isset($_GET["action"])) {
+    if ($_GET["action"] == "logout") {
+        session_unset();
+        header("Location: index.php?login=loggedOut");
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="sk">
 
@@ -10,8 +23,10 @@
 </head>
 
 <ul>
-  <li><a href="#profile">Profile</a></li>
-  <li><a href="#contacts">Contacts</a></li>
+  <li><a href="user.php">Profile</a></li>
+  <li><a href="contacts.php">Contacts</a></li>
+  <li><a href="?action=logout">Log out</a></li>
+
   <li style="float:right"><a class="active" href="#">Inverse pendulum</a></li>
 
   <li class="dropdown">

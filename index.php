@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 if (!empty($_SESSION["login"])) {
@@ -6,13 +7,16 @@ if (!empty($_SESSION["login"])) {
 }
 
 
+
 require_once('config.php');
-require_once('../../google/GoogleAuthenticator-1.0.1/PHPGangsta/GoogleAuthenticator.php');
+require_once($auth_php);
 $authenticator = new PHPGangsta_GoogleAuthenticator();
-require_once("../../google/google-api-php-client-2.4.0/vendor/autoload.php");
+require_once($gansta_path);
 $client = new Google_Client();
-$client->setAuthConfig('../../google/credentials.json');
-$client->setRedirectUri('http://wt221.fei.stuba.sk:8221/web2_final/index.php');
+$client->setAuthConfig($json_cred);
+
+$client->setRedirectUri($red_uri);
+
 $client->addScope("email");
 $service = new Google_Service_Oauth2($client);
 if (isset($_GET['code'])) {

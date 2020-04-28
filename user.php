@@ -23,7 +23,9 @@ if (!isset($_SESSION["login"])) {
 
 <ul>
   <li><a href="#profile" class="active">Profile</a></li>
-  <li><a href="#contacts">Contacts</a></li>
+  <li><a href="contacts.php">Contacts</a></li>
+  <li><a href="?action=logout">Log out</a></li>
+
   <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Simulators</a>
     <div class="dropdown-content">
