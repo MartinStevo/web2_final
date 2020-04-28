@@ -25,18 +25,8 @@ if (!isset($_SESSION["login"])) {
 <body>
     <p>You are logged in as <?php echo $_SESSION["login"]; ?>. <a href="?action=logout">Log out</a></p>
     <?php
+    require_once('config.php');
 
-    $servername_t = "localhost";
-    $username_t = "xondreakova";
-    $password = "h7g3Mn9k";
-    $dbname_t = "autentifikacia";
-    $conn = new mysqli($servername_t, $username_t, $password, $dbname_t);
-    mysqli_set_charset($conn, "utf8");
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
 
     $statsResult = $conn->query("SELECT accessType, COUNT(*) as c FROM Prihlasenia GROUP BY accessType ORDER BY accessType ASC");
     $registeredCount = 0;
@@ -81,8 +71,7 @@ if (!isset($_SESSION["login"])) {
     $qresult = $stmt->get_result();
     $result = array();
    */
-    $loginsResult = $conn->query("SELECT time FROM Prihlasenia WHERE login=? AND accessType=? ORDER BY time DESC");
-    $stmt = $conn->prepare($loginsResult);
+    $stmt = $conn->prepare("SELECT time FROM Prihlasenia WHERE login=? AND accessType=? ORDER BY time DESC");
     if (!$stmt) {
         die("Db error: " . $conn->error);
     }

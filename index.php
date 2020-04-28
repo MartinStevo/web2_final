@@ -4,6 +4,8 @@ session_start();
 if (!empty($_SESSION["login"])) {
     header("Location: user.php");
 }
+
+require_once('config.php');
 require_once('../../google/GoogleAuthenticator-1.0.1/PHPGangsta/GoogleAuthenticator.php');
 $authenticator = new PHPGangsta_GoogleAuthenticator();
 require_once("../../google/google-api-php-client-2.4.0/vendor/autoload.php");
@@ -77,29 +79,19 @@ $authUrl = $client->createAuthUrl();
     </form>
     <p><a href="<?php echo filter_var($authUrl, FILTER_SANITIZE_URL); ?>">Login with Google</a></p>
     <?php
-    $servername_t = "localhost";
-    $username_t = "xondreakova";
-    $password = "h7g3Mn9k";
-    $dbname_t = "autentifikacia";
-    $conn = new mysqli($servername_t, $username_t, $password, $dbname_t);
-    mysqli_set_charset($conn, "utf8");
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
 
     if (isset($_POST["action"])) {
         if ($_POST["action"] == "login") {
-            $query = "SELECT password, secret FROM Registracia WHERE login=?";
             $passwd = hash('sha256', ($_POST['password']));
             $googleAuthCode = $_POST["2fa"];
-            $stmt = $conn->prepare($query);
+            $login = $conn->real_escape_string($_POST['login']);
+
+            $stmt = $conn->prepare("SELECT password, secret FROM Registracia WHERE login=?");
 
             if (!$stmt) {
                 die("Db error: " . $conn->error);
             }
-            $stmt->bind_param('s', $_GET['password']);
+            $stmt->bind_param('s', $login);
             if (!$stmt->execute()) {
                 die("Db error: " . $stmt->error);
             }
@@ -132,7 +124,7 @@ $authUrl = $client->createAuthUrl();
                     echo "Incorrect password";
                 }
             } else {
-                echo "Incorrect user name";
+                echo "Incorrect user name" + $login;
             }
         } else if ($_POST["action"] == "loginLdap") {
             $ldapuid = $_POST["login"];

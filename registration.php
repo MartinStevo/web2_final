@@ -21,7 +21,7 @@ if (empty($_SESSION['authenticatorSecret'])) {
 $secret = $_SESSION['authenticatorSecret'];
 
 $website = 'http://wt221.fei.stuba.sk:8221/web2_final/index.php';
-$title = 'Zadanie 3';
+$title = 'Final project';
 $qrCodeUrl = $authenticator->getQRCodeGoogleUrl($title, $secret, $website);
 ?>
 
@@ -42,20 +42,10 @@ $qrCodeUrl = $authenticator->getQRCodeGoogleUrl($title, $secret, $website);
             <button type="button" onclick="validateForm() ">Submit</button>
         </fieldset>
 
-        <input type="checkbox" onclick="myFunction()">Show Password
+        <input type="checkbox" onclick="togglePassVisibility()">Show Password
     </form>
     <?php
-    $servername_t = "localhost";
-    $username_t = "xondreakova";
-    $password = "h7g3Mn9k";
-    $dbname_t = "autentifikacia";
-    $conn = new mysqli($servername_t, $username_t, $password, $dbname_t);
-    mysqli_set_charset($conn, "utf8");
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+    require_once('config.php');
 
     if (isset($_POST['action'])) {
 
@@ -66,9 +56,8 @@ $qrCodeUrl = $authenticator->getQRCodeGoogleUrl($title, $secret, $website);
             $password = $conn->real_escape_string($_POST['password']);
             $login = $conn->real_escape_string($_POST['login']);
             $password = hash('sha256', $password);
-            $result = $conn->query("SELECT * FROM Registracia WHERE login=?");
 
-            $stmt = $conn->prepare($result);
+            $stmt = $conn->prepare("SELECT * FROM Registracia WHERE login=?");
             if (!$stmt) {
                 die("Db error: " . $conn->error);
             }
@@ -81,36 +70,20 @@ $qrCodeUrl = $authenticator->getQRCodeGoogleUrl($title, $secret, $website);
 
             if ($authenticator->verifyCode($secret, $_POST['code'], 2)) {
 
-                if ($existing->num_rows != 0) {
+                if ($qresult->num_rows != 0) {
                     echo "Login already exists";
                 } else {
 
-                    /*
-                     $query = "INSERT INTO geolocation( ip, lat, lon, country, capital, region, country_code, local, date, page, city, countryflag) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($query);
-    if (!$stmt) {
-        die("Db error: ". $conn->error);
-    }
-    $stmt->bind_param("ssssssssssss", $ip, $lat, $lon, $country, $capital, $region, $country_code,$local,$date,$page, $city, $country_flag);
-    
-    if (!$stmt->execute()) {
-        die("Db error: ". $stmt->error);
-    }
-                     
-                     */
                     $query = "INSERT INTO Registracia ( name, surname, email, login, password, secret) VALUES (?, ?, ?, ?, ?, ?)";
                     $stmt = $conn->prepare($query);
                     if (!$stmt) {
-                        die("Db error: " . $conn->error);
-                    }
+                        die("Db error: " . $conn->error);                    }
                     $stmt->bind_param("ssssss",$name,$surname,$email,$login,$password,$secret);
 
                     if (!$stmt->execute()) {
                         die("Db error: " . $stmt->error);
                     }
-                    if (!$conn->query(($query))) {
-                        echo "Registration failed";
-                    } else {
+                    else {
                         header("Location: index.php?registration=success");
                     }
                 }
