@@ -5,6 +5,7 @@ if (!empty($_SESSION["login"])) {
     header("Location: user.php");
 }
 
+
 require_once('config.php');
 require_once('../../google/GoogleAuthenticator-1.0.1/PHPGangsta/GoogleAuthenticator.php');
 $authenticator = new PHPGangsta_GoogleAuthenticator();
@@ -46,12 +47,15 @@ $authUrl = $client->createAuthUrl();
 <body>
     <?php
     if (isset($_GET["registration"]) && $_GET["registration"] == "success") {
+        echo "<p class='localized' key='login_message'></p>";
         echo "Registration successful! Now you can log in.";
     }
     if (isset($_GET["login"])) {
         if ($_GET["login"] == "none") {
+            echo "<p class='localized' key='login_prompt'></p>";
             echo "Please log in.";
         } else if ($_GET["login"] == "loggedOut") {
+            echo "<p class='localized' key='logout_message'></p>";
             echo "You were logged out.";
         }
     }
@@ -118,12 +122,18 @@ $authUrl = $client->createAuthUrl();
                             header("Location: user.php");
                         }
                     } else {
+                        echo "<p class='localized' key='invalid_auth_code'></p>";
                         echo "Invalid authenticator code";
                     }
                 } else {
+                    echo "<p class='localized' key='invalid_passwd'></p>";
+
                     echo "Incorrect password";
                 }
             } else {
+                
+                echo "<p class='localized' key='invalid_login'></p>";
+
                 echo "Incorrect user name" + $login;
             }
         } else if ($_POST["action"] == "loginLdap") {
@@ -159,6 +169,7 @@ $authUrl = $client->createAuthUrl();
                         header("Location: user.php");
                     }
                 } else {
+                    echo "<p class='localized' key='ldap_ref'></p>";
                     echo "LDAP bind failed";
                 }
             }

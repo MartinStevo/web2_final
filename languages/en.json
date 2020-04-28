@@ -1,0 +1,26 @@
+{"en" : {
+    "home": "Home",
+    "login": "Login",
+    "ldaplogin": "STU LDAP Login",
+    "registration": "Registration",
+    "s1": "Tlmič automobilu",
+    "s2": "Inverzné kyvadlo",
+    "s3": "Gulička na tyči",
+    "s4": "Náklon lietadla",
+    "login_message": "Registrácia prebehla úspešne,prosím prihláste sa!",
+    "logout_message": "Odhlásenie prebehlo úspešne,tešíme sa na vašu dalšiu návštevu!",
+    "login_promp": "Prosím prihláste sa.",
+    "invalid_auth_code": "Nesprávny autentifikačný kód.",
+    "invalid_passwd": "Nesprávne heslo.",
+    "invalid_login" : "Nesprávne prihlasovacie meno.",
+    "ldap_ref":"Nepodarilo sa nadviazať spojenie s LDAP serverom, prosím skontrolujte svoje pripojenie/údaje.",
+    "ldap_bin_failed": "Bind z LDAP serverom sa nepodaril,skúste prosím znova",
+    "login_exists": "Prihlasovacie meno už existuje, prosím vyberte si iné.",
+    "login_inp": "Prihlasovacie meno",
+    "passwd_inp": "Heslo",
+    "auth_code_inp": "Autentifikačný kód",
+    "name": "Meno",
+    "surname": "Priezvisko",
+    "submit": "Potvrdiť"
+
+}}

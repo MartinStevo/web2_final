@@ -15,12 +15,25 @@ if (!isset($_SESSION["login"])) {
 
 <head>
     <title>Alica Ondreakova Page</title>
-
+    <link rel="stylesheet" href="style.css">
     <meta name_t="viewport" content="width=device-width, initial-scale=1.0">
     <meta name_t="keywords" content="html, css">
     <meta name_t="author" content="Alica Ondreakova">
 </head>
 
+<ul>
+  <li><a href="#profile" class="active">Profile</a></li>
+  <li><a href="#contacts">Contacts</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Simulators</a>
+    <div class="dropdown-content">
+      <a href="tlmenie.php">Car shock absorber</a>
+      <a href="kyvadlo.php">Inverse pendulum</a>
+      <a href="gulocka.php">Ball on a stick</a>
+      <a href="lietadlo.php">Tilt of the aircraft</a>
+    </div>
+  </li>
+</ul>
 
 <body>
     <p>You are logged in as <?php echo $_SESSION["login"]; ?>. <a href="?action=logout">Log out</a></p>
@@ -57,25 +70,13 @@ if (!isset($_SESSION["login"])) {
     </table>
     <?php
     $login = $_SESSION["login"];
-    $accessType= $_SESSION["accessType"];
-    //$loginsResult = $conn->query("SELECT time FROM Prihlasenia WHERE login='$login' AND accessType='$accessType' ORDER BY time DESC");
-   /*
-   $stmt = $conn->prepare($query);
-    if (!$stmt) {
-        die("Db error: " . $conqre$qresult  }
-    $stmt->bind_param('s', $_GET['country']);
-    if (!$stmt->execute()) {
-        die("Db error: " . $stmt->error);
-    }
+    $accessType = $_SESSION["accessType"];
 
-    $qresult = $stmt->get_result();
-    $result = array();
-   */
     $stmt = $conn->prepare("SELECT time FROM Prihlasenia WHERE login=? AND accessType=? ORDER BY time DESC");
     if (!$stmt) {
         die("Db error: " . $conn->error);
     }
-    $stmt->bind_param('ss',$login,$accessType);
+    $stmt->bind_param('ss', $login, $accessType);
     if (!$stmt->execute()) {
         die("Db error: " . $stmt->error);
     }
@@ -91,7 +92,9 @@ if (!isset($_SESSION["login"])) {
             <th>Time</th>
         </tr>
         <?php while ($row = $qresult->fetch_assoc()) : ?>
-            <tr><td><?php echo date("d. m. Y H:i:s", strtotime($row['time'])); ?></td></tr>
+            <tr>
+                <td><?php echo date("d. m. Y H:i:s", strtotime($row['time'])); ?></td>
+            </tr>
         <?php endwhile; ?>
     </table>
 </body>
