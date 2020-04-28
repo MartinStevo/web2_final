@@ -7,7 +7,7 @@
     <meta name_t="viewport" content="width=device-width, initial-scale=1.0">
     <meta name_t="keywords" content="html, css">
     <meta name_t="author" content="Alica Ondreakova">
-
+    
 
 </head>
 <?php
