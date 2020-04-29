@@ -21,28 +21,7 @@ if (!isset($_SESSION["login"])) {
     <link rel="shortcut icon" type="image/png" href="other/favicon.ico"/>
 </head>
 
-<<<<<<< HEAD
-<div id="head">
-
-<ul>
-  <li><a href="#profile" class="active">Profile</a></li>
-  <li><a href="contacts.php">Contacts</a></li>
-  <li><a href="?action=logout">Log out</a></li>
-
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Simulators</a>
-    <div class="dropdown-content">
-      <a href="tlmenie.php">Car shock absorber</a>
-      <a href="kyvadlo.php">Inverse pendulum</a>
-      <a href="gulocka.php">Ball on a stick</a>
-      <a href="lietadlo.php">Tilt of the aircraft</a>
-    </div>
-  </li>
-</ul>
-</div>
-=======
 <h1>Finálne zadanie</h1>
->>>>>>> 459af1263af3fdc5dd400bc4f3598ee7460bc53b
 
 <body>
 
