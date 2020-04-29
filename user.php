@@ -14,13 +14,14 @@ if (!isset($_SESSION["login"])) {
 <html lang="sk">
 
 <head>
-    <title>Alica Ondreakova Page</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name_t="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name_t="keywords" content="html, css">
-    <meta name_t="author" content="Alica Ondreakova">
+    <title>Final</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image/png" href="other/favicon.ico"/>
 </head>
 
+<<<<<<< HEAD
 <div id="head">
 
 <ul>
@@ -39,9 +40,32 @@ if (!isset($_SESSION["login"])) {
   </li>
 </ul>
 </div>
+=======
+<h1>Finálne zadanie</h1>
+>>>>>>> 459af1263af3fdc5dd400bc4f3598ee7460bc53b
 
 <body>
-    <p>You are logged in as <?php echo $_SESSION["login"]; ?>. <a href="?action=logout">Log out</a></p>
+
+<section>
+<nav>
+    <ul>
+        <li><a href="#profile" class="active">Profile</a></li>
+        <li><a href="contacts.php">Contacts</a></li>
+        <li><a href="?action=logout">Log out</a></li>
+
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Simulators</a>
+            <div class="dropdown-content">
+                <a href="tlmenie.php">Car shock absorber</a>
+                <a href="kyvadlo.php">Inverse pendulum</a>
+                <a href="gulocka.php">Ball on a stick</a>
+                <a href="lietadlo.php">Tilt of the aircraft</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+    <p>You are logged in as <?php echo $_SESSION["login"]; ?></p>
     <?php
     require_once('config.php');
 
@@ -102,6 +126,9 @@ if (!isset($_SESSION["login"])) {
             </tr>
         <?php endwhile; ?>
     </table>
+
+    <p><a href="?action=logout">Log out</a></p>
+</section>
 </body>
 
 </html>

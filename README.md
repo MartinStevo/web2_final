@@ -5,3 +5,6 @@ Sem patria aj poznamky:
 -pridany login/register
 28.4
 -pridany config,prepared statements
+29.4
+-css nejaky dizajn,base pridane media queries(by Martin)
+
