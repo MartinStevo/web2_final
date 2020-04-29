@@ -1,5 +1,5 @@
 function getLanguage(lang) {
-
+    
 }
 
 function getlocationdata(next) {

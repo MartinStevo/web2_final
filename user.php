@@ -21,6 +21,8 @@ if (!isset($_SESSION["login"])) {
     <meta name_t="author" content="Alica Ondreakova">
 </head>
 
+<div id="head">
+
 <ul>
   <li><a href="#profile" class="active">Profile</a></li>
   <li><a href="contacts.php">Contacts</a></li>
@@ -36,6 +38,7 @@ if (!isset($_SESSION["login"])) {
     </div>
   </li>
 </ul>
+</div>
 
 <body>
     <p>You are logged in as <?php echo $_SESSION["login"]; ?>. <a href="?action=logout">Log out</a></p>
