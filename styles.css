@@ -1,0 +1,103 @@
+body,html {
+    background-image: url("whiteback.jpg");
+    /*color: #24292e;*/
+font-family: Arial, Helvetica, sans-serif;
+margin: 0;
+padding: 0;
+}
+  
+  .topnav {
+    overflow: hidden;
+    background-color:black;
+ 
+  }
+
+  .hopnav {
+    overflow: hidden;
+    background-color:#979ea6;
+ 
+  }
+  .hopnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+
+
+  
+  .topnav a {
+    float: left;
+    color: #9E9E9E;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    color:white;
+  }
+  
+  .topnav a.act {
+    background-color: black;
+    color: white;
+  }
+
+  .background_1 {
+    background-color:#24292e;
+  }
+
+  #register_log {
+    color: rgba(255,255, 255, 0.6);
+
+  }
+
+
+
+  #wrapp {
+   
+    overflow: hidden; /* will contain if #first is longer than #second */
+}
+#first {
+    width: 500px;
+    /* vertical-align: top; */
+    float: right;
+    margin-right: 30%;
+    margin-top: 10%;
+    color: white;
+    display: inline-block;
+   
+}
+#second {
+    min-height: 100%;
+    margin-left: 120px;
+    overflow: hidden;
+    display: inline-block;
+
+}
+
+#center { 
+    text-align: center;
+}
+
+#user_container {
+  text-align: left;
+  background-color: white;
+  width: auto;
+  height: fit-content;
+  border: 1px solid black;
+  /*margin-top: 100px; */
+ 
+
+}
+
+#center_reg { 
+    display: inline-block;
+     border-style: solid;
+    background-color: whitesmoke;
+    width: 400px;
+}

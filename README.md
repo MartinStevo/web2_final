@@ -7,4 +7,6 @@ Sem patria aj poznamky:
 -pridany config,prepared statements
 29.4
 -css nejaky dizajn,base pridane media queries(by Martin)
-
+30.4
+-stavia sa dizajn, martin optimalizuje
+-pracuje sa na preklade, bude cerpany z json filu (language/..)
