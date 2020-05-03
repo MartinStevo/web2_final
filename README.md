@@ -10,3 +10,6 @@ Sem patria aj poznamky:
 30.4
 -stavia sa dizajn, martin optimalizuje
 -pracuje sa na preklade, bude cerpany z json filu (language/..)
+3.5
+-jazyk ide(treba dat key a class),pdf ide , csv spravim po pondelku alebo pondelok, dizajn asi je, 
+todo: csv, optimalizacia cez media queries, a nvm co este 
