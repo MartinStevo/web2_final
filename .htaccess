@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteRule ^api/pendulum?([0-9a-zA-Z_-]*)$ api.php?octave=pendulum&$1 [QSA,L]
+RewriteRule ^api/ball?([0-9a-zA-Z_-]*)$ api.php?octave=ball&$1 [QSA,L]
+RewriteRule ^api/vehicle?([0-9a-zA-Z_-]*)$ api.php?octave=vehicle&$1 [QSA,L]
+RewriteRule ^api/plane?([0-9a-zA-Z_-]*)$ api.php?octave=plane&$1 [QSA,L]
+RewriteRule ^api/search?([0-9a-zA-Z_-]*)$ api.php?octave=search&$1 [QSA,L]
