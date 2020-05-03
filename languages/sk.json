@@ -1,6 +1,21 @@
- {"en" : {
-    "home": "Domov",
-    "login": "Prihlásenie",
+{
+    "pdf":"Ukázať pdf",
+    "show_but":"Ukázať",
+    "hide_but":"Skryť",
+    "send_but":"Poslať na email",
+    "showkey": "Ukázať api key",
+    "showemailchange": "Zmena emailu",
+    "showpromptpasswd": "Zmena hesla",
+    "set-menu": "Nastavenia",
+    "stats-menu": "Štatistika",
+    "signout-menu": "Odhlásiť sa",
+    "user-menu": "Profil",
+    "about-menu": "O nás",
+    "team-menu": "Tím",
+    "doc-menu": "Dokumentácia",
+    "home-menu": "Domov",
+    "login-menu": "Prihlásenie",
+    "register-menu": "Registrácia",
     "ldaplogin": "Prihlásenie cez LDAP",
     "registration": "Registrácia",
     "s1": "Tlmič automobilu",
@@ -12,8 +27,8 @@
     "login_promp": "Prosím prihláste sa.",
     "invalid_auth_code": "Nesprávny autentifikačný kód.",
     "invalid_passwd": "Nesprávne heslo.",
-    "invalid_login" : "Nesprávne prihlasovacie meno.",
-    "ldap_ref":"Nepodarilo sa nadviazať spojenie s LDAP serverom, prosím skontrolujte svoje pripojenie/údaje.",
+    "invalid_login": "Nesprávne prihlasovacie meno.",
+    "ldap_ref": "Nepodarilo sa nadviazať spojenie s LDAP serverom, prosím skontrolujte svoje pripojenie/údaje.",
     "ldap_bin_failed": "Bind z LDAP serverom sa nepodaril,skúste prosím znova",
     "login_exists": "Prihlasovacie meno už existuje, prosím vyberte si iné.",
     "login_inp": "Prihlasovacie meno",
@@ -21,6 +36,25 @@
     "auth_code_inp": "Autentifikačný kód",
     "name": "Meno",
     "surname": "Priezvisko",
-    "submit": "Potvrdiť"
+    "submit": "Potvrdiť",
+    "reg_button": "Registrovať sa",
+    "normal_login": "Klasické prihlásenie",
+    "ldap_login": "Prihlásenie cez LDAP",
+    "h1-idx": "Ponúkame vám moderné riešenia zo sveta Computer aided systémov1!",
+    "h2-idx": "Našim osobným cieľom je spraviť tento svet lepší.",
+    "h3-idx": "Poháňa nás:",
+    "h4-idx": "Naši partneri:",
+    "passwd_reset": "Zabudli ste heslo?",
+    "name-holder": "meno",
+    "passwd-holder":"heslo",
+    "code-holder":"autentifikačný kód",
+    "login-holder":"používateľské meno",
+    "sub-login":"Prihlásiť sa",
+    "surname-holder": "priezvisko",
+    "email-holder":"email",
+    "qr-holder":"QR kód",
+    "sim-menu":"Simulátory"
 
-}}
+
+
+}

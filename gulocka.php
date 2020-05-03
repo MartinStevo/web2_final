@@ -16,29 +16,22 @@ if (!isset($_SESSION["login"])) {
 
 <head>
     <title>Alica Ondreakova Page</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/dict.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
     <meta name_t="viewport" content="width=device-width, initial-scale=1.0">
     <meta name_t="keywords" content="html, css">
     <meta name_t="author" content="Alica Ondreakova">
 </head>
 
-<ul>
-  <li><a href="user.php">Profile</a></li>
-  <li><a href="contacts.php">Contacts</a></li>
-  <li><a href="?action=logout">Log out</a></li>
+<div class="background_1">
+<?php require_once('widgets/nav.php'); ?>
+</div>
 
-  <li style="float:right"><a class="active" href="#">Ball on a stick</a></li>
 
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Simulators</a>
-    <div class="dropdown-content">
-      <a href="tlmenie.php">Car shock absorber</a>
-      <a href="kyvadlo.php">Inverse pendulum</a>
-      <a href="gulocka.php">Ball on a stick</a>
-      <a href="lietadlo.php">Tilt of the aircraft</a>
-    </div>
-  </li>
-</ul>
 
 <body>
 </body>

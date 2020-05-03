@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: index.php?login=none");
+    exit;
+} else if (isset($_GET["action"])) {
+    if ($_GET["action"] == "logout") {
+        session_unset();
+        header("Location: index.php?login=loggedOut");
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="sk">
 
@@ -7,10 +20,11 @@
     <meta name_t="viewport" content="width=device-width, initial-scale=1.0">
     <meta name_t="keywords" content="html, css">
     <meta name_t="author" content="Alica Ondreakova">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="languages/dict.js"></script>
+    <script type="text/javascript" src="js/dict.js"></script>
 
 
 
@@ -19,19 +33,10 @@
 
 <body>
 
-<button class="translate" id="en">En</button>
-    <button class="translate" id="sk">Sk</button>
 
 <div class="background_1">
-        <div class="topnav">
-            <a href="about.php" class="lang" key="about-menu"></a>
-            <a href="documentation.php" class="lang" key="doc-menu"></a>
-            <a href="#" class="act lang" key="team-menu"></a>
-            <a style="float:right"  href="index.php" class="lang" key="login-menu"></a>
-
-
-            <a style="float:right" href="registration.php" class="lang" key="register-menu"></a>
-        </div>
+<?php require_once('widgets/nav.php'); ?>
+</div>
 
 
 

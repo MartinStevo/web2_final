@@ -75,26 +75,17 @@ if (isset($_POST['action'])) {
     <meta name_t="viewport" content="width=device-width, initial-scale=1.0">
     <meta name_t="keywords" content="html, css">
     <meta name_t="author" content="Alica Ondreakova">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="languages/dict.js"></script>
+    <script type="text/javascript" src="js/dict.js"></script>
 </head>
 
 <body>
-<button class="translate" id="en">En</button>
-    <button class="translate" id="sk">Sk</button>
 
 
-    <div class="topnav">
-        <a href="about.php" class="lang" key="about-menu"></a>
-        <a href="documentation.php" class="lang" key="doc-menu"></a>
-        <a href="team.php" class="lang" key="team-menu"></a>
-        <a style="float:right" href="index.php" class="lang" key="login-menu"></a>
+    <?php require_once('widgets/nav.php'); ?>
 
-
-        <a style="float:right" href="registration.php" class="lang act"  key="register-menu"></a>
-    </div>
 
     <div id="center">
 
@@ -107,18 +98,17 @@ if (isset($_POST['action'])) {
                 <form action="registration.php" method="post" id="registration">
 
                     <input type="hidden" name="action" value="submit">
-                    <input type='text' name="name" id="name" class="fadeIn first" class="lang" key="name_inp"
-                    placeholder="name">
-                    <input type="text" name="surname" id="surname" class="fadeIn first" placeholder="surname">
-                    <input type="text" name="email" id="email" class="fadeIn second" placeholder="email">
-                    <input type="text" name="login" id="login" class="fadeIn second" placeholder="login">
-                    <input type="password" name="password" id="password" class="fadeIn third" placeholder="password">
+                    <input type='text' name="name" id="name" class="fadeIn first lang-placeholder" key="name-holder" placeholder="name">
+                    <input type="text" name="surname" id="surname" class="fadeIn first lang-placeholder" key="surname-holder" placeholder="surname">
+                    <input type="text" name="email" id="email" class="fadeIn second lang-placeholder" key="email-holder" placeholder="email">
+                    <input type="text" name="login" id="login" class="fadeIn second lang-placeholder" key="login-holder" placeholder="login">
+                    <input type="password" name="password" id="password" class="fadeIn third lang-placeholder" key="passwd-holder" placeholder="password">
                     <p class="fadeIn third lang"  key="auth_code_inp"></p> <!-- doesnt work lang -->
                     <p class="fadeIn fourth"><img src="<?php echo $qrCodeUrl; ?>"></p>
-                    <input class="fadeIn fourth" type="text" name="code" id="code" placeholder="QR code">
+                    <input class="fadeIn fourth lang-placeholder" key="qr-holder" type="text" name="code" id="code" placeholder="QR code">
                     <p id="errors"></p>
                     <!-- doesnt work lang  -->
-                    <input type="submit" id="reg" class="fadeIn fifth lang" value="Register"  key="reg_button" onclick="validateForm() "></button>
+                    <input type="submit" id="reg" class="fadeIn fifth lang-value"  value="Register"  key="reg_button" onclick="validateForm() "></button>
                     <input type="checkbox" onclick="togglePassVisibility()" placeholder="Show password">
                 </form>
             </div>
