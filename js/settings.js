@@ -58,6 +58,7 @@ $(document).ready(function () {
     setBut.click(function () {
         settingsSel.show();
         allStats.hide();
+        showpdflogin.hide();
         showpromptpasswd.click(function () {
             showpasswdchange.show();
             showemailchange.hide();
