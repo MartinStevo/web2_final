@@ -14,5 +14,3 @@ initQ=0;
 initTheta=0;
 [y,t,x]=lsim(sys,r*ones(size(t)),t,[initAlfa;initQ;initTheta]);
 
-disp(x(:,3));
-disp(r*ones(size(t))*N-x*K');

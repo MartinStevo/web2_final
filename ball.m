@@ -16,7 +16,3 @@ t = 0:0.01:5;
 initRychlost=0;
 initZrychlenie=0;
 [y,t,x]=lsim(N*sys,r*ones(size(t)),t,[initRychlost;0;initZrychlenie;0]);
-
-disp(N*x(:,1));
-disp(x(:,3));
-

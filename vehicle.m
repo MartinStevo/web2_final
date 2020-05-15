@@ -16,5 +16,3 @@ initX1=0; initX1d=0;
 initX2=0; initX2d=0;
 [y,t,x]=lsim(sys*[0;1],r*ones(size(t)),t,[initX1;initX1d;initX2;initX2d;0]);
 
-disp(x(:,1));
-disp(x(:,3));

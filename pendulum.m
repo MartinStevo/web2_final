@@ -20,6 +20,4 @@ initPozicia=0;
 initUhol=0;
 [y,t,x]=lsim(sys,r*ones(size(t)),t,[initPozicia;0;initUhol;0]);
 
-disp(x(:,1));
-disp(x(:,3));
 
