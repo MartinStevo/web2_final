@@ -1,3 +1,6 @@
+<?php 
+require_once('config.php');
+require_once('statistics.php'); ?>
 <?php
 session_start();
 
@@ -9,6 +12,9 @@ if (!isset($_SESSION["login"])) {
         header("Location: index.php?login=loggedOut");
     }
 }
+$login = $_SESSION["login"];
+$page = "ball.php";
+insert_page($conn,$page,$login);
 ?>
 
 <!DOCTYPE html>

@@ -1,3 +1,6 @@
+<?php require_once('config.php');
+require_once('statistics.php');
+?>
 <?php
 session_start();
 
@@ -8,11 +11,21 @@ if (!isset($_SESSION["login"])) {
     if ($_GET["action"] == "logout") {
         session_unset();
         header("Location: index.php?login=loggedOut");
+        exit;
     }
+    echo "Hello world!";
+$key = check_if_user_has_key($conn, $login);
+if ($key == false) {
+    insert_apikey($conn, $login);
 }
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="sk">
+
 
 <head>
     <title>Final</title>
@@ -38,17 +51,17 @@ if (!isset($_SESSION["login"])) {
 
         <!-- <p>You are logged in as <?php echo $_SESSION["login"]; ?></p> -->
         <div id="statistics">
-        <?php require_once('widgets/gui_stats.php'); ?>
+            <?php require_once('widgets/gui_stats.php'); ?>
 
         </div>
 
         <div id="settings" style="margin-left:20px">
 
-        <?php require_once('widgets/gui_sett.php'); ?>
+            <?php require_once('widgets/gui_sett.php'); ?>
         </div>
 
- 
-       
+
+
 
 
 
