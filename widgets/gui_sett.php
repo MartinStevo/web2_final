@@ -11,6 +11,7 @@
                 change_password($conn, $login,$_GET['new_passwd']);
             }
         }
+    }
 
         $key = get_api_key($conn, $login);
 
