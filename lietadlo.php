@@ -1,4 +1,8 @@
 <?php
+require_once('config.php');
+require_once('statistics.php'); ?>
+
+<?php
 session_start();
 
 if (!isset($_SESSION["login"])) {
@@ -9,13 +13,16 @@ if (!isset($_SESSION["login"])) {
         header("Location: index.php?login=loggedOut");
     }
 }
+$login = $_SESSION["login"];
+$page = "airplane.php";
+insert_page($conn,$page,$login);
 ?>
 
 <!DOCTYPE html>
 <html lang="sk">
 
 <head>
-<title>Alica Ondreakova Page</title>
+    <title>Alica Ondreakova Page</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/login.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -28,7 +35,7 @@ if (!isset($_SESSION["login"])) {
 </head>
 
 <div class="background_1">
-<?php require_once('widgets/nav.php'); ?>
+    <?php require_once('widgets/nav.php'); ?>
 </div>
 
 

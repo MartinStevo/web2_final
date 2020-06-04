@@ -1,6 +1,11 @@
 <?php
 
 session_start();
+header('Content-Type: text/event-stream');
+header('Cache-Control: no-cache');
+header("Connection: keep-alive");
+header("Access-Control-Allow-Origin: *");
+//header("acces-control-allow-credentials:true");
 
 $cmd_start = "octave --eval \"";
 $cmd_end = "\"";
@@ -9,7 +14,7 @@ $op = null;
 
 $disp["ball"] = 'disp(N*x(:,1)); disp (t); disp(x(:,3)); disp(x(size(x,1),:)); ';
 $disp["pendulum"] = 'disp(x(:,1)); disp (t); disp(x(:,3)); disp(x(size(x,1),:)); ';
-$disp["plane"] = "disp(N*x(:,1)); disp (t); disp(x(:,3)); disp(r*ones(size(t))*N-x*K'); ";
+$disp["plane"] = "disp(N*x(:,1)); disp (t); disp(r*ones(size(t))*N-x*K'); disp(x(size(x,1),:)); ";
 $disp["vehicle"] = 'disp(x(:,1)); disp (t); disp(x(:,3)); disp(x(size(x,1),:)); ';
 
 $new_run["ball"] = '[y,t,x]=lsim(N*sys,r*ones(size(t)),t, x_temp); ';
@@ -29,6 +34,7 @@ if (isset($_GET['octave'])) {
             if (isset($_GET['r'])) {
                 if (empty($_SESSION[$program])) {
                     $cmd = $cmd_start . 'r=' . $_GET['r'] . '; ' . $program . '; ' . $disp[$program] . $cmd_end;
+
                 } else {
                     $array_x = implode(", ", $_SESSION[$program]);
                     $cmd = $cmd_start . 'r=' . $_GET['r'] . '; ' . $program . '; x_temp(1,:)=[' . $array_x . ']; ' . $new_run[$program] . $disp[$program] . $cmd_end;
