@@ -1,3 +1,7 @@
+<?php 
+require_once('config.php');
+require_once('statistics.php'); ?>
+
 <?php
 require_once('config.php');
 require_once('statistics.php'); ?>

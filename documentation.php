@@ -36,6 +36,7 @@ if (!isset($_SESSION["login"])) {
     <div class="background_1">
         <?php require_once('widgets/nav.php'); ?>
     </div>
+    <h1>Hello there i am documentation</h1>
 
 
 
