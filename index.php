@@ -112,10 +112,13 @@ if (isset($_POST["action"])) {
                 $query = "INSERT INTO Prihlasenia (time, login, accessType) VALUES (?, ?, ?)";
                 $stmt = $conn->prepare($query);
                 if (!$stmt) {
+                    echo "DIE DIE";
                     die("Db error: " . $conn->error);
                 }
                 $stmt->bind_param('sss', $date, $login, $type);
                 if (!$stmt->execute()) {
+                    echo "DIE DIE";
+
                     die("Db error: " . $stmt->error);
                 } else {
                     $_SESSION["login"] = $login;
@@ -163,9 +166,9 @@ if (isset($_POST["action"])) {
 
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/dict.js"></script>
+    <script  src="js/dict.js"></script>
 
-    <script type="text/javascript" src="js/script.js"></script>
+    <script src="js/script.js"></script>
     <link rel="shortcut icon" type="image/png" href="other/favicon.ico" />
 </head>
 
@@ -263,9 +266,9 @@ if (isset($_POST["action"])) {
 
     <div id="center">
         <h4 class="lang" key="h3-idx"></h4>
-        <img src="img/imageoctave.png" style="width:50px;height:50px">
+        <img src="img/imageoctave.png" alt="Octave logo" style="width:50px;height:50px">
         <h4 class="lang" key="h4-idx"></h4>
-        <img src="img/stufei (1).png" style="width:100px;height:50px">
+        <img src="img/stufei (1).png" alt="STU FEI logo" style="width:100px;height:50px">
 
 
     </div>

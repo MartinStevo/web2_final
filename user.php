@@ -1,4 +1,5 @@
-<?php require_once('config.php');
+<?php 
+require_once('config.php');
 require_once('statistics.php');
 ?>
 <?php
@@ -13,19 +14,20 @@ if (!isset($_SESSION["login"])) {
         header("Location: index.php?login=loggedOut");
         exit;
     }
-    echo "Hello world!";
-$key = check_if_user_has_key($conn, $login);
+    $key = check_if_user_has_key($conn, $login);
 if ($key == false) {
     insert_apikey($conn, $login);
+}
+
 }
 
 
 
 
 ?>
-<!DOCTYPE html>
-<html lang="sk">
 
+<!DOCTYPE html>
+<html>
 
 <head>
     <title>Final</title>
