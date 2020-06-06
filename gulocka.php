@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('config.php');
 require_once('statistics.php'); ?>
 <?php
@@ -14,7 +14,7 @@ if (!isset($_SESSION["login"])) {
 }
 $login = $_SESSION["login"];
 $page = "ball.php";
-insert_page($conn,$page,$login);
+insert_page($conn, $page, $login);
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,6 @@ insert_page($conn,$page,$login);
 <head>
     <title>Alica Ondreakova Page</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/login.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -49,7 +48,7 @@ insert_page($conn,$page,$login);
             $("#submit").click(function () {
                 varr = $("#r").val();
                 var temp = parseFloat(varr)
-                if (temp >= 0.01 && temp <= 100) {
+                if (temp >= 0 && temp <= 100) {
                     $.ajax({
                         type: 'GET',
                         url: "api/ball?r=" + varr,
@@ -98,7 +97,7 @@ insert_page($conn,$page,$login);
 
         }
 
-        var sketch = function(p) {
+        var sketch = function (p) {
             p.x_home = 30;
             p.y_home = 215;
             p.x_tyc = 30;
@@ -113,37 +112,37 @@ insert_page($conn,$page,$login);
             p.col = p.color(255, 255, 128);
             p.bg = p.loadImage('img/lab.jpg');
 
-            p.setup = function() {
-                    p.createCanvas(1000, 400);
-                    p.array_x = (outputData.y);
-                    p.array_y = (outputData.angle);
-                    p.x = p.x_home + p.ball_constant + p.temp*8.5;
-                    p.y = p.y_home;
-                    p.x_tyc = p.x_home;
-                    p.y_tyc = p.y_home;
+            p.setup = function () {
+                p.createCanvas(1000, 400);
+                p.array_x = (outputData.y);
+                p.array_y = (outputData.angle);
+                p.x = p.x_home + p.ball_constant + p.temp * 8.5;
+                p.y = p.y_home;
+                p.x_tyc = p.x_home;
+                p.y_tyc = p.y_home;
 
             };
 
             p.i = 0;
-            p.draw = function() {
+            p.draw = function () {
                 p.background(p.bg);
                 p.fill(p.col);
 
+                p.x = p.x_home + p.ball_constant + p.array_x[p.i] * 8.5;
+                p.y = p.y_home + p.tan(p.array_y[p.i]) * p.array_x[p.i] * 8.5;
                 p.ellipse(p.x, p.y, p.r * 2, p.r * 2);
-                p.x = p.x_home + p.ball_constant + p.array_x[p.i]*8.5;
-                p.y = p.y_home + p.tan(p.array_y[p.i])*p.array_x[p.i]*8.5;
                 console.log(p.tan(p.array_y[p.i]));
                 console.log(p.tan(p.array_x));
                 p.i++;
                 if (p.i == 501) {
                     console.log(varr);
                     p.i = 0;
-                    p.x = p.x_home + p.ball_constant + p.temp*8.5;
+                    p.x = p.x_home + p.ball_constant + p.temp * 8.5;
                     p.y = p.y_home;
                 }
 
                 p.rotate(p.array_y[p.i]);
-                p.rect(p.x_tyc, p.y_tyc + 25, 940 , 20, 0, 20, 20, 0);
+                p.rect(p.x_tyc, p.y_tyc + 25, 940, 20, 0, 20, 20, 0);
                 drawStojan();
 
             };
@@ -156,7 +155,16 @@ insert_page($conn,$page,$login);
         };
 
 
-
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#checkboxgraf').change(function () {
+                $('#chart').toggle();
+            });
+            $('#checkboxanim').change(function () {
+                $('#sketch-holder').toggle();
+            });
+        });
     </script>
 
 </head>
@@ -165,13 +173,27 @@ insert_page($conn,$page,$login);
     <?php require_once('widgets/nav.php'); ?>
 </div>
 
+
+
 <body>
-<div id="form" style="margin: auto; width: 235px; font-size: 25px"><br>
-<form action="javascript:void(0);">
-    <label for="r">r: </label><input style="font-size: 25px" id="r" name="r" type="number" step="0.01" min="0.01" max="100" required>
-    <button style="font-size: 25px" id="submit">Set</button>
-</form></div>
-<div id="chart" style="margin: auto; width: 1000px"></div><br>
-<div id="sketch-holder" style="margin: auto; width: 1000px"></div><br>
+<div id="form" style="font-size: 25px; text-align: center"><br>
+
+    Zadajte novú pozíciu guličky [0-100cm]
+    <form action="javascript:void(0);" style="text-align: center"><br>
+
+        <label for="r">r: </label>
+        <input style="font-size: 25px" id="r" name="r" type="number" step="0.01" min="0.01" max="100" required>
+        <button style="font-size: 25px" id="submit">OK</button><br><br>
+
+        <label for="checkboxgraf">Graf: </label><input type="checkbox" id="checkboxgraf" name="checkboxgraf" style="vertical-align: bottom; width: 25px; height: 25px" checked>
+        <label for="checkboxanim">Animácia: </label><input type="checkbox" id="checkboxanim" name="checkboxanim" style="vertical-align: bottom; width: 25px; height: 25px" checked><br>
+
+    </form>
+</div>
+<br>
+<div id="chart" style="margin: auto; width: 1000px"></div>
+<br>
+<div id="sketch-holder" style="margin: auto; width: 1000px"></div>
+<br>
 </body>
 </html>

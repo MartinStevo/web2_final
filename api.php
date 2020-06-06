@@ -56,14 +56,18 @@ if (isset($_GET['octave'])) {
     //var_dump($rv);
 
     if ($op != null) {
-        $len = count($op) - 1;
-        $y = array_slice($op, 0, $len / 3);
-        $x = array_slice($op, $len / 3, $len / 3);
-        $angle = array_slice($op, ($len / 3) * 2, $len / 3);
-        $array = ["y" => $y, "x" => $x, "angle" => $angle];
-        echo json_encode($array);
-        // save x(size(x,1),:)
-        $array_x = array_slice($op, $len);
-        $_SESSION[$program] = $array_x;
+        if ($program != "search") {
+            $len = count($op) - 1;
+            $y = array_slice($op, 0, $len / 3);
+            $x = array_slice($op, $len / 3, $len / 3);
+            $angle = array_slice($op, ($len / 3) * 2, $len / 3);
+            $array = ["y" => $y, "x" => $x, "angle" => $angle];
+            echo json_encode($array);
+            // save x(size(x,1),:)
+            $array_x = array_slice($op, $len);
+            $_SESSION[$program] = $array_x;
+        } elseif ($program == "search") {
+            echo json_encode($op);
+        }
     }
 }
