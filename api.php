@@ -1,6 +1,11 @@
 <?php
 
 session_start();
+header('Content-Type: text/event-stream');
+header('Cache-Control: no-cache');
+header("Connection: keep-alive");
+header("Access-Control-Allow-Origin: *");
+//header("acces-control-allow-credentials:true");
 
 $cmd_start = "octave --eval \"";
 $cmd_end = "\"";
@@ -9,7 +14,7 @@ $op = null;
 
 $disp["ball"] = 'disp(N*x(:,1)); disp (t); disp(x(:,3)); disp(x(size(x,1),:)); ';
 $disp["pendulum"] = 'disp(x(:,1)); disp (t); disp(x(:,3)); disp(x(size(x,1),:)); ';
-$disp["plane"] = "disp(N*x(:,1)); disp (t); disp(x(:,3)); disp(r*ones(size(t))*N-x*K'); ";
+$disp["plane"] = "disp(N*x(:,1)); disp (t); disp(r*ones(size(t))*N-x*K'); disp(x(size(x,1),:)); ";
 $disp["vehicle"] = 'disp(x(:,1)); disp (t); disp(x(:,3)); disp(x(size(x,1),:)); ';
 
 $new_run["ball"] = '[y,t,x]=lsim(N*sys,r*ones(size(t)),t, x_temp); ';
@@ -29,6 +34,7 @@ if (isset($_GET['octave'])) {
             if (isset($_GET['r'])) {
                 if (empty($_SESSION[$program])) {
                     $cmd = $cmd_start . 'r=' . $_GET['r'] . '; ' . $program . '; ' . $disp[$program] . $cmd_end;
+
                 } else {
                     $array_x = implode(", ", $_SESSION[$program]);
                     $cmd = $cmd_start . 'r=' . $_GET['r'] . '; ' . $program . '; x_temp(1,:)=[' . $array_x . ']; ' . $new_run[$program] . $disp[$program] . $cmd_end;
@@ -50,14 +56,18 @@ if (isset($_GET['octave'])) {
     //var_dump($rv);
 
     if ($op != null) {
-        $len = count($op) - 1;
-        $y = array_slice($op, 0, $len / 3);
-        $x = array_slice($op, $len / 3, $len / 3);
-        $angle = array_slice($op, ($len / 3) * 2, $len / 3);
-        $array = ["y" => $y, "x" => $x, "angle" => $angle];
-        echo json_encode($array);
-        // save x(size(x,1),:)
-        $array_x = array_slice($op, $len);
-        $_SESSION[$program] = $array_x;
+        if ($program != "search") {
+            $len = count($op) - 1;
+            $y = array_slice($op, 0, $len / 3);
+            $x = array_slice($op, $len / 3, $len / 3);
+            $angle = array_slice($op, ($len / 3) * 2, $len / 3);
+            $array = ["y" => $y, "x" => $x, "angle" => $angle];
+            echo json_encode($array);
+            // save x(size(x,1),:)
+            $array_x = array_slice($op, $len);
+            $_SESSION[$program] = $array_x;
+        } elseif ($program == "search") {
+            echo json_encode($op);
+        }
     }
 }
