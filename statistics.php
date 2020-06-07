@@ -1,9 +1,14 @@
    <?php require_once('phpconfig/keygen.php');
-         require_once('config.php'); 
-   ?>
+    require_once('config.php');
+    require_once('phpconfig/userses.php');
+
+    $login = $_SESSION["login"];
+    ?>
 
 
    <?php
+
+
 
     function insert_page($conn, $page, $login)
     {
@@ -27,7 +32,6 @@
         }
         $key = genGUID();
 
-
         $stmt->bind_param('ss', $login, $key);
         if (!$stmt->execute()) {
             die("Db error: " . $stmt->error);
@@ -41,6 +45,7 @@
         if (!$stmt) {
             die("Db error: " . $conn->error);
         }
+
         $stmt->bind_param('s', $login);
         if (!$stmt->execute()) {
             die("Db error: " . $stmt->error);
@@ -51,6 +56,7 @@
             return true;
         } else {
             return false;
+            echo "fuck it works ?";
         }
 
         $stmt->close();
@@ -84,22 +90,23 @@
         if (!$stmt) {
             die("Db error: " . $conn->error);
         }
-        $stmt->bind_param('ss',$key,$login);
+        $stmt->bind_param('ss',$login,$key);
         if (!$stmt->execute()) {
             die("Db error: " . $stmt->error);
         }
-    
-        
+
+
         $stmt->close();
     }
 
-function check_password($conn, $login,$password){
-    $stmt = $conn->prepare("SELECT password FROM Registracia WHERE login = ?" );
-        $passwd = hash('sha256',$password);
+    function check_password($conn, $login, $password)
+    {
+        $stmt = $conn->prepare("SELECT password FROM Registracia WHERE login = ?");
+        $passwd = hash('sha256', $password);
         if (!$stmt) {
             die("Db error: " . $conn->error);
         }
-        $stmt->bind_param('s',$login);
+        $stmt->bind_param('s', $login);
         if (!$stmt->execute()) {
             die("Db error: " . $stmt->error);
         }
@@ -112,25 +119,24 @@ function check_password($conn, $login,$password){
         } else {
             return false;
         }
-    
-        
+
+
         $stmt->close();
+    }
 
-}
-
-function change_password($conn, $login,$password)
+    function change_password($conn, $login, $password)
     {
-       
+
         $stmt = $conn->prepare("UPDATE User SET password= ? WHERE login = ?");
         if (!$stmt) {
             die("Db error: " . $conn->error);
         }
-        $stmt->bind_param('ss',$password,$login);
+        $stmt->bind_param('ss', $password, $login);
         if (!$stmt->execute()) {
             die("Db error: " . $stmt->error);
         }
-    
-        
+
+
         $stmt->close();
     }
 
