@@ -5,13 +5,13 @@
         if (isset($_GET['action']) && $_GET['action'] == 'regenerate_key') {
             regenerate_api_key($conn, $login);
         }
-        if (isset($_GET['action']) && $_GET['action'] == 'regenerate_password') {
-            if (hash('sha256',$_GET['old_one']) == hash('sha256',$_GET['old_two'])) {
-             if (check_password($conn, $_SESSION['login'],$_GET['old_one']) == true) {
-                change_password($conn, $login,$_GET['new_passwd']);
-            }
-        }
-    }
+        //if (isset($_GET['action']) && $_GET['action'] == 'regenerate_password') {
+          //  if (hash('sha256',$_GET['old_one']) == hash('sha256',$_GET['old_two'])) {
+            // if (check_password($conn, $_SESSION['login'],$_GET['old_one']) == true) {
+              //  change_password($conn, $login,$_GET['new_passwd']);
+           // }
+        //}
+    //}
 
         $key = get_api_key($conn, $login);
 

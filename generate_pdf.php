@@ -1,5 +1,12 @@
 
 <?php
+
+
+//todo 
+//1.1 gen doc
+//1.2 gen queries
+//1.3 gen statististics
+//1.4 
 //include connection file 
 include_once("config.php");
 include_once('libs/fpdf182/fpdf.php');

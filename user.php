@@ -1,6 +1,7 @@
 <?php 
 require_once('config.php');
 require_once('statistics.php');
+require_once('phpconfig/keygen.php');
 ?>
 <?php
 session_start();

@@ -15,7 +15,7 @@ if (!isset($_SESSION["login"])) {
 <html lang="sk">
 
 <head>
-    <title>Alica Ondreakova Page</title>
+    <title>FINAL PROJECT</title>
 
     <meta name_t="viewport" content="width=device-width, initial-scale=1.0">
     <meta name_t="keywords" content="html, css">
@@ -25,6 +25,8 @@ if (!isset($_SESSION["login"])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/dict.js"></script>
+    <script type="text/javascript" src="js/settings.js"></script>
+
 
 
 
@@ -38,6 +40,20 @@ if (!isset($_SESSION["login"])) {
 <?php require_once('widgets/nav.php'); ?>
 </div>
 
+<div id="user_container">
+
+
+<div id="statistics">
+    <?php require_once('widgets/gui_stats.php'); ?>
+
+</div>
+
+<div id="settings" style="margin-left:20px">
+
+    <?php require_once('widgets/gui_sett.php'); ?>
+</div>
+
+</div>
 
 
 </body>
