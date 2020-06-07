@@ -31,7 +31,7 @@ class PDF extends FPDF
         // Move to the right
         $this->Cell(80);
         // Title
-        $this->Cell(300, 10, 'Login history of user' . $_SESSION["login"], 1, 1, 'L');
+        $this->Cell(300, 10, 'Login history of user ' . $_SESSION["login"], 1, 1, 'L');
         // Line break
         $this->Ln(20);
     }
