@@ -1,8 +1,8 @@
-   <?php require_once('phpconfig/keygen.php');
-    require_once('config.php');
+   <?php
+
+    require_once('phpconfig/keygen.php');
     require_once('phpconfig/userses.php');
 
-    $login = $_SESSION["login"];
     ?>
 
 
@@ -56,7 +56,6 @@
             return true;
         } else {
             return false;
-            echo "fuck it works ?";
         }
 
         $stmt->close();
@@ -90,7 +89,7 @@
         if (!$stmt) {
             die("Db error: " . $conn->error);
         }
-        $stmt->bind_param('ss',$login,$key);
+        $stmt->bind_param('ss', $key,$login);
         if (!$stmt->execute()) {
             die("Db error: " . $stmt->error);
         }
@@ -127,7 +126,7 @@
     function change_password($conn, $login, $password)
     {
 
-        $stmt = $conn->prepare("UPDATE User SET password= ? WHERE login = ?");
+        $stmt = $conn->prepare("UPDATE Registracia SET password= ? WHERE login = ?");
         if (!$stmt) {
             die("Db error: " . $conn->error);
         }

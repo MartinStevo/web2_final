@@ -1,21 +1,31 @@
      <?php
-        require_once('phpconfig/userses.php');
+
         require_once('config.php');
+        require_once('phpconfig/userses.php');
         require_once('statistics.php');
-        if (isset($_GET['action']) && $_GET['action'] == 'regenerate_key') {
-            regenerate_api_key($conn, $login);
-        }
-        //if (isset($_GET['action']) && $_GET['action'] == 'regenerate_password') {
-          //  if (hash('sha256',$_GET['old_one']) == hash('sha256',$_GET['old_two'])) {
-            // if (check_password($conn, $_SESSION['login'],$_GET['old_one']) == true) {
-              //  change_password($conn, $login,$_GET['new_passwd']);
-           // }
-        //}
-    //}
-
-        $key = get_api_key($conn, $login);
-
         ?>
+
+     <?php
+
+        $user = getUser();
+        $key = get_api_key($conn, $user);
+
+        if (isset($_GET['action']) && $_GET['action'] == "regenerate_key") {
+            regenerate_api_key($conn, $user);
+        }
+
+        $user = getUser();
+        $key = get_api_key($conn, $user);
+
+        //if (isset($_GET['action']) && $_GET['action'] == 'regenerate_password') {
+        //  if (hash('sha256',$_GET['old_one']) == hash('sha256',$_GET['old_two'])) {
+        // if (check_password($conn, $_SESSION['login'],$_GET['old_one']) == true) {
+        //  change_password($conn, $login,$_GET['new_passwd']);
+        // }
+        //}
+        //}
+        ?>
+
 
      <?php if (isLogged() && isRegistered()) : ?>
          <button style="margin-left:20px" id="showpromptpasswd" class="lang" key="showpromptpasswd"></button>
@@ -42,9 +52,10 @@
          <button style="margin-left:20px" id="showkey" class="lang" key="showkey">Show api key</button>
          <button style="margin-left:20px" id="hidekey" class="lang" key="hide_but"></button>
 
-         <form action="?action=regenerate_key" method="post">
+         <form action="?action=regenerate_key" method="get">
              <button type="submit" style="text-align:left;margin-left:40px" id="reg-key" style="clear:both;">Regenarate apikey</button>
          </form>
+
          <div id="api-key">
              <div style="text-align: left;margin-left:40px;">
                  <input type="text" value="<?php echo $key ?>" id="myKey" size="35"> <img style="vertical-align: middle;" src="img/copytoclip.png" width="20px" height="20px" onclick="copytoClipboard()">
@@ -58,7 +69,10 @@
          <form action="?action=regenerate_key" method="post">
              <button type="submit" style="text-align:left;margin-left:40px" id="reg-key" style="clear:both;">Regenarate apikey</button>
          </form>
+
+
          <div id="api-key">
+
              <div style="text-align: left;margin-left:40px;">
                  <input type="text" value="<?php echo $key ?>" id="myKey" size="35"> <img style="vertical-align: middle;" src="img/copytoclip.png" width="20px" height="20px" onclick="copytoClipboard()">
 

@@ -15,14 +15,10 @@ if (!isset($_SESSION["login"])) {
         header("Location: index.php?login=loggedOut");
         exit;
     }
-    $key = check_if_user_has_key($conn, $_SESSION["login"]);
-if ($key == false) {
-    echo "key is false;";
-    insert_apikey($conn, $_SESSION["login"]);
-    echo "key inserted";
 }
-
-
+$key = check_if_user_has_key($conn, $_SESSION["login"]);
+if ($key == false) {
+insert_apikey($conn, $_SESSION["login"]);
 }
 
 
