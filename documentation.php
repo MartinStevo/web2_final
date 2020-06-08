@@ -29,99 +29,92 @@ if (!isset($_SESSION["login"])) {
     <script type="text/javascript" src="js/settings.js"></script>
 
 
-
-
-
 </head>
 
 <body>
 
 
 <div class="background_1">
-<?php require_once('widgets/nav.php'); ?>
+    <?php require_once('widgets/nav.php'); ?>
 </div>
 
 <div id="user_container">
 
 
-<div id="statistics">
-    <?php require_once('widgets/gui_stats.php'); ?>
+    <div id="statistics">
+        <?php require_once('widgets/gui_stats.php'); ?>
 
-</div>
-
-<div id="settings" style="margin-left:20px">
-
-    <?php require_once('widgets/gui_sett.php'); ?>
-</div>
-
-    <div style="background-color: white;padding:20px;">
-    <h1>Documentation</h1>
-    <a href="#section1" key="getStart" class="lang" style="font-weight: bold;"></a><br>
-    <a href="#section2" key="sims" class="lang"></a><br>
-    <a href="#section3" class="lang" key="s2-section"></a><br>
-    <a href="#section4" class="lang" key="s3-section"></a><br>
-    <a href="#section5" class="lang" key="s1-section"></a><br>
-    <a href="#section6" class="lang" key="s4-section"></a><br>
-
-
-<section id="section1" style="margin:30px">
-
-<text>Our application started as final project for subject:Web technologies II. Since that time we didn't really do anything with the apllication... 
-    We want to show you what is student of MSUS capable of after corona crysis..
-But it's here for out teachers,trainers and thesis masters to see.</text>
-</section>
-
-<section id="section2" style="margin:30px">
-
-<text>
-    hjkchkdjhsjkdhaskjdhaskjdhaskjdhaskjdhaskjdhsajkdhsakjdhasjkdaskdhaskjhdashdasdhasd
-    dkjsahdaskjdsakhdsdhaskhdasuhdaskdjshadas
-    dhhsjkdhasmhdsadhaskjdhaskhdahda
-    jdkashdhsadkljashdashdakhdhksada
-
-</text>
-
-</section>
-
-<section id="section3" style="margin:30px">
-
-<text>
-hjkchkdjhsjkdhaskjdhaskjdhaskjdhaskjdhaskjdhsajkdhsakjdhasjkdaskdhaskjhdashdasdhasd
-    dkjsahdaskjdsakhdsdhaskhdasuhdaskdjshadas
-    dhhsjkdhasmhdsadhaskjdhaskhdahda
-    jdkashdhsadkljashdashdakhdhksada
-</text>
-    
-</section>
-
-<section id="section4" style="margin:30px">
-
-<text>
-
-</text>
-</section>
-
-<section id="section5" style="margin:30px">
-
-<text>
-hjkchkdjhsjkdhaskjdhaskjdhaskjdhaskjdhaskjdhsajkdhsakjdhasjkdaskdhaskjhdashdasdhasd
-    dkjsahdaskjdsakhdsdhaskhdasuhdaskdjshadas
-    dhhsjkdhasmhdsadhaskjdhaskhdahda
-    jdkashdhsadkljashdashdakhdhksada
-</text>
-</section>
-
-<section id="section6" style="margin:30px">
-
-<text>
-hjkchkdjhsjkdhaskjdhaskjdhaskjdhaskjdhaskjdhsajkdhsakjdhasjkdaskdhaskjhdashdasdhasd
-    dkjsahdaskjdsakhdsdhaskhdasuhdaskdjshadas
-    dhhsjkdhasmhdsadhaskjdhaskhdahda
-    jdkashdhsadkljashdashdakhdhksada
-</text>
-</section>
     </div>
 
+    <div id="settings" style="margin-left:20px">
+
+        <?php require_once('widgets/gui_sett.php'); ?>
+    </div>
+
+    <div style="background-color: white;padding:20px;">
+        <h1>Documentation</h1>
+        <a href="#section1" key="getStart" class="lang" style="font-weight: bold;"></a><br>
+        <a href="#section2" key="sims" class="lang"></a><br>
+        <a href="#section3" class="lang" key="s1-section"></a><br>
+        <a href="#section4" class="lang" key="s2-section"></a><br>
+        <a href="#section5" class="lang" key="s3-section"></a><br>
+        <a href="#section6" class="lang" key="s4-section"></a><br>
+
+
+        <section id="section1" style="margin:30px">
+
+            <text class="lang" key="getStart-text">
+            </text>
+
+        </section>
+
+        <section id="section2" style="margin:30px">
+
+            <text class="lang" key="sims-text">
+            </text>
+
+        </section>
+
+        <section id="section3" style="margin:30px">
+
+            <text class="lang" key="s1-text">
+            </text>
+            <br>
+            <text class="lang" key="s1-text-api-call">
+            </text>
+
+        </section>
+
+        <section id="section4" style="margin:30px">
+
+            <text class="lang" key="s2-text">
+            </text>
+            <br>
+            <text class="lang" key="s2-text-api-call">
+            </text>
+
+        </section>
+
+        <section id="section5" style="margin:30px">
+
+            <text class="lang" key="s3-text">
+            </text>
+            <br>
+            <text class="lang" key="s3-text-api-call">
+            </text>
+
+        </section>
+
+        <section id="section6" style="margin:30px">
+
+            <text class="lang" key="s4-text">
+            </text>
+            <br>
+            <text class="lang" key="s4-text-api-call">
+            </text>
+
+        </section>
+    </div>
 
 
 </body>

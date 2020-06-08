@@ -22,12 +22,22 @@
     "s2-section":"2.2 Inverzne kyvadlo",
     "s3-section":"2.3 Gulička na tyči",
     "s4-section":"2.4 Náklon lietadla",
-    "getStart":"1. Ako začať",
-    "sims":"2. Simalátory",
+    "getStart":"1. Začíname s API",
+    "sims":"2. API volania",
     "s1": "Tlmič automobilu",
     "s2": "Inverzné kyvadlo",
     "s3": "Gulička na tyči",
     "s4": "Náklon lietadla",
+    "getStart-text":"Využívanie našich API služieb si vyžaduje vytvoriť používateľský účet. Pre vytvorenie nového účtu je potrebné sa\n    registrovať prostredníctvom našej registrácie alebo sa môžete prihlásiť pomocou Google účtu alebo ldap. Po vytvorení\n    účtu vám bude vygenerovaný API kľúč, ktorý vám je po prihlásení k dispozícii v nastaveniach. Tento API kľúč si môžete\n    kedykoľvek resetovať.",
+    "sims-text":"Dáta z prostredia Octave sú posielané v JSON formáte. Pre ich získanie je potrebné zadať váš API kľúč. Na tejto stránke\n    uvádzame volania pre správny prístup k službe API.",
+    "s1-text": "Pri simulátore tlmiča automobilu je potrebné zadať výšku prekážky r. API volanie:",
+    "s1-text-api-call": "https://wt28.fei.stuba.sk:4428/web2_final/api/vehicle?apikey={váš_api_kľúč}r={vaše_r}",
+    "s2-text": "Pri simulátore prevráteného kyvadla je potrebné zadať pozíciu kyvadla r. API volanie:",
+    "s2-text-api-call": "https://wt28.fei.stuba.sk:4428/web2_final/api/pendulum?apikey={váš_api_kľúč}r={vaše_r}",
+    "s3-text": "Pri simulátore guličky na tyči je potrebné zadať pozíciu guličky r. API volanie:",
+    "s3-text-api-call": "https://wt28.fei.stuba.sk:4428/web2_final/api/ball?apikey={váš_api_kľúč}r={vaše_r}",
+    "s4-text": "Pri simulátore lietadla je potrebné zadať náklon lietadla r. API volanie:",
+    "s4-text-api-call": "Ahttps://wt28.fei.stuba.sk:4428/web2_final/api/plane?apikey={váš_api_kľúč}r={vaše_r}",
     "login_message": "Registrácia prebehla úspešne,prosím prihláste sa!",
     "logout_message": "Odhlásenie prebehlo úspešne,tešíme sa na vašu dalšiu návštevu!",
     "login_promp": "Prosím prihláste sa.",
@@ -59,8 +69,10 @@
     "surname-holder": "priezvisko",
     "email-holder":"email",
     "qr-holder":"QR kód",
-    "sim-menu":"Simulátory"
-
+    "sim-menu":"Simulátory",
+    "ball-text":"Zadajte novú pozíciu guličky [0-100cm]",
+    "chart":"Graf: ",
+    "animation":"Animácia: "
 
 
 }

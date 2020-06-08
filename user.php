@@ -86,10 +86,10 @@ $_SESSION["apikey"] = get_api_key($conn, $_SESSION["login"]);
         <form action="javascript:void(0);" style="font-size: 25px"><br>
             <textarea id="areaqueries" name="areaqueries" cols="60" rows="5"></textarea>
             <br><br>
-            <input type="submit" id="area-submit" name="area-submit" value="Vypočítaj">
+            <input type="submit" id="area-submit" name="area-submit" value="Octave">
         </form><br>
 
-        <div id="area-output"></div>
+        <div id="area-output" style="max-width: 70%; margin: auto"></div>
     </div>
 
 </body>

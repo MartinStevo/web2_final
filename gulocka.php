@@ -178,15 +178,18 @@ insert_page($conn, $page, $login);
 <body>
 <div id="form" style="font-size: 25px; text-align: center"><br>
 
-    Zadajte novú pozíciu guličky [0-100cm]
+    <?php echo "<p class='lang' key='ball-text'></p>"; ?>
     <form action="javascript:void(0);" style="text-align: center"><br>
 
         <label for="r">r: </label>
         <input style="font-size: 25px" id="r" name="r" type="number" step="0.01" min="0.01" max="100" required>
         <button style="font-size: 25px" id="submit">OK</button><br><br>
 
-        <label for="checkboxgraf">Graf: </label><input type="checkbox" id="checkboxgraf" name="checkboxgraf" style="vertical-align: bottom; width: 25px; height: 25px" checked>
-        <label for="checkboxanim">Animácia: </label><input type="checkbox" id="checkboxanim" name="checkboxanim" style="vertical-align: bottom; width: 25px; height: 25px" checked><br>
+        <label for="checkboxgraf"><?php echo "<p class='lang' key='chart' style='display: inline'></p>"; ?></label>
+        <input type="checkbox" id="checkboxgraf" name="checkboxgraf" style="vertical-align: bottom; width: 25px; height: 25px" checked>
+
+        <label for="checkboxanim"><?php echo "<p class='lang' key='animation' style='display: inline'></p>"; ?></label>
+        <input type="checkbox" id="checkboxanim" name="checkboxanim" style="vertical-align: bottom; width: 25px; height: 25px" checked><br>
 
     </form>
 </div>

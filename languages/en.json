@@ -22,12 +22,22 @@
     "s2-section":"2.2 Inverted pendulum",
     "s3-section":"2.3 Beam and ball",
     "s4-section":"2.4 Aircraft pitch control",
-    "getStart":"1. Getting started",
-    "sims":"2. Simalators",
+    "getStart":"1. Getting started with the API",
+    "sims":"2. API calls",
     "s1": "Car suspension system",
     "s2": "Inverted pendulum",
     "s3": "Beam and ball",
     "s4": "Aircraft pitch control",
+    "getStart-text":"Use of our API services requires the user account. To create a new account, you need to sign up or you can log in using a Google account or ldap. API key will be generated for you, as soon as your account is created. This API key is available for you in settings section and you can reset it any time.",
+    "sims-text":"Octave data are responsed in JSON file format. You need to add your API key to obtain them. The correct form of API calls are listed on this page.",
+    "s1-text": "It's necessary to add the height of the obstacle r in the car suspension system simulator. API call:",
+    "s1-text-api-call": "https://wt28.fei.stuba.sk:4428/web2_final/api/vehicle?apikey={your_api_key}r={r}",
+    "s2-text": "It's necessary to add the position of the pendulum r in the inverted pendulum simulator. API call:",
+    "s2-text-api-call": "https://wt28.fei.stuba.sk:4428/web2_final/api/pendulum?apikey={your_api_key}r={r}",
+    "s3-text": "It's necessary to add the position of the ball r in the beam and ball simulator. API call:",
+    "s3-text-api-call": "https://wt28.fei.stuba.sk:4428/web2_final/api/ball?apikey={your_api_key}r={r}",
+    "s4-text": "It's necessary to add the pitch of the aircraft r in the aircraft pitch control simulator. API call:",
+    "s4-text-api-call": "https://wt28.fei.stuba.sk:4428/web2_final/api/plane?apikey={your_api_key}r={r}",
     "login_message": "Registration was succesfull,please log in.",
     "logout_message": "You signed out successfully, we are looking forward for your next visit!",
     "login_promp": "Please sign in.",
@@ -59,7 +69,9 @@
     "surname-holder": "surname",
     "email-holder":"email",
     "qr-holder":"QR code",
-    "sim-menu":"Simulators"
-
+    "sim-menu":"Simulators",
+    "ball-text":"Type ball position [0-100cm]",
+    "chart":"Chart: ",
+    "animation":"Animation: "
 
 }
