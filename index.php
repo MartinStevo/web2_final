@@ -185,8 +185,8 @@ if (isset($_POST["action"])) {
         <div id="wrapp">
 
             <div id="first">
-<!--                <h4 class="lang" key="h1-idx"></h4>-->
-<!--                <h4 class="lang" key="h2-idx"></h4>-->
+                <h4 class="lang" key="h1-idx"></h4>
+                <h4 class="lang" key="h2-idx"></h4>
             </div>
 
 

@@ -61,6 +61,28 @@
         $stmt->close();
     }
 
+   function check_if_api_exists($conn, $apikey)
+   {
+       $stmt = $conn->prepare("SELECT apikey FROM User WHERE apikey=?");
+       if (!$stmt) {
+           die("Db error: " . $conn->error);
+       }
+
+       $stmt->bind_param('s', $apikey);
+       if (!$stmt->execute()) {
+           die("Db error: " . $stmt->error);
+       }
+       $qresult = $stmt->get_result();
+
+       if ($row = $qresult->fetch_assoc()) {
+           return true;
+       } else {
+           return false;
+       }
+
+       $stmt->close();
+   }
+
     function get_api_key($conn, $login)
     {
         $stmt = $conn->prepare("SELECT apikey FROM User WHERE login=?");
