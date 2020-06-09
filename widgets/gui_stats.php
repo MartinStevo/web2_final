@@ -10,18 +10,29 @@ $login = $_SESSION["login"];
 $accessType = $_SESSION["accessType"];
 $apikey = $_SESSION["apikey"];
 
-function send_page_stats() {
-
+function send_page_stats($conn) {
+    $stats = show_page_stats($conn);
     $to = "alicaondreakova@gmail.com";
     $subject = "My subject";
     $txt = "Hello world!";
     $headers = "From: alicaondreakova@gmail.com" . "\r\n" .
         "CC: somebodyelse@example.com";
+    $body = "";
+    foreach ($stats as $key => $value) {
+        $body += "<p>$key: $value</p>";
+    }
+    $body += "";
+    foreach ($stats as $key => $value) {
+        foreach ($value as $e)
+    }
 
     mail($to,$subject,$txt,$headers);
 
 }
 
+if (isset($_POST["send_page_stats"])) {
+    send_page_stats();
+}
 send_page_stats();
 function show_profile_usage_stats($conn, $login, $accessType)
 {
@@ -148,6 +159,7 @@ function show_user_queries($conn, $apikey)
 
             <form method="post" action="exportcsv.php"> <!-- todo export queries to csv/exportcsv.php -->
                 <button style="margin:10px" type="submit" id="csv-queries" name="generate_csv" class="lang stats" key="csv-exp" formtarget="_blank"></button>
+                
             </form>
 
 
