@@ -143,6 +143,11 @@ function show_user_queries($conn, $apikey)
 
             <p id="query-hist" class="stats lang" key="query-hist" style="margin-left:10px;"></p>
 
+            <form method="post" action="cas_to_pdf.php">
+                <button style="margin:10px" type="submit" id="pdf-queries" name="generate_pdf" class="lang" key="pdf" formtarget="_blank"></button>
+            </form>
+
+
             <button style="margin:10px" id="showquery" class="stats lang" key="show_but"></button>
             <button style="margin:10px" id="hidequery" class="stats lang" key="hide_but"></button>
             <table id="showuserqueries" class="stats" style="margin-left:20px;">

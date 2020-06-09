@@ -9,6 +9,7 @@ $(document).ready(function () {
     var showquery= $("#showquery");
     var hidequery = $("#hidequery");
     var showqueries = $("#showuserqueries");
+    var showpdfqueries = $("#pdf-queries");
 
     var promptpagehist = $("#page-hist");
     var showpage = $("#showpage");
@@ -65,6 +66,7 @@ $(document).ready(function () {
     sentglobal.hide();
     allStats.hide();
     showpdflogin.hide();
+    showpdfqueries.hide();
 
     setBut.click(function () {
         settingsSel.show();
@@ -148,6 +150,7 @@ $(document).ready(function () {
         showpage.show();
         showquery.show();
         showpdflogin.show();
+        showpdfqueries.show(); //try thus
 
         prompstathistorylog.show();
         promptgloballogin.show();
