@@ -29,7 +29,12 @@
          <p id="login-history" class="stats" style="margin-left:20px;">Your login history:</p>
          <button id="showlogin" class="stats lang" key="show_but"></button>
          <button id="hidelogin" class="stats lang" key="hide_but"></button>
+
+         <form method="post" action="send_stats_pdf.php">
          <button id="sentlogin" class="stats lang" key="send_but"></button>
+         </form>
+     
+
          <form method="post" action="generate_pdf.php" >
         <button  type="submit" id="pdf-login" name="generate_pdf" class="lang" key="pdf" formtarget="_blank"></button>
         </form>

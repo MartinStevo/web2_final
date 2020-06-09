@@ -1,9 +1,12 @@
 <?php
 
+include_once('config.php');
+/*
 $password = "Preco666";
 $servername = "localhost";
 $username = "Kurbo";
 $dbname = "final";
+*/ 
 //////////////////////////////////////////
 
 if( isset($_POST["dbtarget"]) ){
