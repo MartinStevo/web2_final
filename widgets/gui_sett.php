@@ -52,9 +52,7 @@ $apikey = $_SESSION["apikey"];
         ?>
 
 
-<div style=" width: 100%;
-    border: 1px solid black;
-    overflow: hidden;background-color:white;">
+
      <?php if (isLogged() && isRegistered()) : ?>
          <button style="margin-left:20px" id="showpromptpasswd" class="lang" key="showpromptpasswd"></button>
          <button style="margin-left:20px" id="hidepasswd" class="lang" key="hide_but"></button>
@@ -110,7 +108,7 @@ $apikey = $_SESSION["apikey"];
 
              </div>
          </div>
-</div>
+
 
 
      <?php endif; ?>
