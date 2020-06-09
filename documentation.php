@@ -115,10 +115,7 @@ if (!isset($_SESSION["login"])) {
             </text>
 
         </section>
-        <form method="post" action="download_doc.php" >
-        <button type="submit" id="pdf-login" name="generate_pdf" class="lang" key="pdf"> <img  style="margin:30px" src="img/pdficon.png" width="100px height:100px"> </button>
-
-        </form>
+       
     </div>
 
 
