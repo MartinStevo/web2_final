@@ -11,6 +11,8 @@ $(document).ready(function () {
     var showqueries = $("#showuserqueries");
     var showpdfqueries = $("#pdf-queries");
 
+    var showcsv = $("#csv-queries");
+
     var promptpagehist = $("#page-hist");
     var showpage = $("#showpage");
     var hidepage = $("#hidepage");
@@ -147,6 +149,7 @@ $(document).ready(function () {
         sentlogin.show();
         promptqueryhist.show();//try thus
         promptpagehist.show();//try thus
+        showcsv.show();
         showpage.show();
         showquery.show();
         showpdflogin.show();

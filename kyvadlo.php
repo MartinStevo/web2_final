@@ -158,24 +158,24 @@ insert_page($conn,$page,$login);
 </style>
 <body>
 <div class="grid-container">
-    <h1> Reverzne kyvadlo</h1>
-    <p>Hodnotu <i>r</i> môžete zloviť z intervali <-15, 15>.</p>
+    <h1 class="lang" key="pend-h1"></h1>
+    <p class="lang" key="val"></p>
 
     <div class="grid-item">
         <div id="form" class="pendulum" style="margin: auto; width: 235px; font-size: 25px"><br>
             <form action="javascript:void(0);">
                 <label for="r (rad)">r: </label>
                 <input style="font-size: 25px" id="r" name="r" type="number" step="" min="-15" max="15" required>
-                <button style="font-size: 25px" id="submit">Set</button>
+                <button style="font-size: 25px" id="submit" class="lang" key="set"></button>
             </form>
         </div>
 
         <br>
 
         <div class ="toAllign">
-            <label class="leftAlign" for="vehicle1"> Zobraz animáciu</label><br>
+            <label class="leftAlign lang" for="vehicle1" key="animation"> </label><br>
             <input type="checkbox" id="vehicle1" name="Animácia" value="animation" onclick="myFunction(1)" checked><br>
-            <label class="leftAlign" for="vehicle2"> Zobraz graf</label><br>
+            <label class="leftAlign lang" for="vehicle2" key="chart"> </label><br>
             <input type="checkbox" id="vehicle2" name="Graf" value="graph" onclick="myFunction(2)" checked>
         </div>
 

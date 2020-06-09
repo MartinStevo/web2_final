@@ -59,7 +59,7 @@ if (!isset($_SESSION["login"])) {
    
 
     <section id="section1" style="margin:30px">
-        <h1 class="lang" key="doc"></h1>
+        <h1 class="lang" key="doc-menu"></h1>
     </section>
         
 

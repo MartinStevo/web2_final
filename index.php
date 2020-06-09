@@ -244,15 +244,12 @@ if (isset($_POST["action"])) {
         <?php
         if (isset($_GET["registration"]) && $_GET["registration"] == "success") {
             echo "<p class='localized' key='login_message'></p>";
-            echo "Registration successful! Now you can log in.";
         }
         if (isset($_GET["login"])) {
             if ($_GET["login"] == "none") {
                 echo "<p class='localized' key='login_prompt'></p>";
-                echo "Please log in.";
             } else if ($_GET["login"] == "loggedOut") {
                 echo "<p class='localized' key='logout_message'></p>";
-                echo "You were logged out.";
             }
         }
         ?>

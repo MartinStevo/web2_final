@@ -8,6 +8,7 @@ $username = "Kurbo";
 $dbname = "final";
 */ 
 //////////////////////////////////////////
+$apikey = $_SESSION["apikey"];
 
 if( isset($_POST["dbtarget"]) ){
 
@@ -28,7 +29,8 @@ if( isset($_POST["dbtarget"]) ){
 
 
     // query to get data from database
-    $sql = ("SELECT * FROM ".$dbtarget);//." ".$where);
+    //$sql = ("SELECT * FROM ".$dbtarget);/." ".$where);
+    $sql = ("SELECT * FROM Queries WHERE apikey = $apikey");//." ".$where);
 
     // Export the data and prompt a csv file for download
     header("Content-type: text/x-csv");

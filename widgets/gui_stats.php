@@ -146,6 +146,10 @@ function show_user_queries($conn, $apikey)
                 <button style="margin:10px" type="submit" id="pdf-queries" name="generate_pdf" class="lang stats" key="pdf" formtarget="_blank"></button>
             </form>
 
+            <form method="post" action="exportcsv.php">
+                <button style="margin:10px" type="submit" id="csv-queries" name="generate_csv" class="lang stats" key="csv-exp" formtarget="_blank"></button>
+            </form>
+
 
             <button style="margin:10px" id="showquery" class="stats lang" key="show_but"></button>
             <button style="margin:10px" id="hidequery" class="stats lang" key="hide_but"></button>

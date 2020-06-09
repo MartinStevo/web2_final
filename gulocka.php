@@ -184,7 +184,7 @@ insert_page($conn, $page, $login);
 
         <label for="r">r: </label>
         <input style="font-size: 25px" id="r" name="r" type="number" step="0.01" min="0.01" max="100" required>
-        <button style="font-size: 25px" id="submit">OK</button><br><br>
+        <button style="font-size: 25px" id="submit" class="lang" key="set"></button><br><br>
 
         <label for="checkboxgraf"><?php echo "<p class='lang' key='chart' style='display: inline'></p>"; ?></label>
         <input type="checkbox" id="checkboxgraf" name="checkboxgraf" style="vertical-align: bottom; width: 25px; height: 25px" checked>

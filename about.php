@@ -30,7 +30,6 @@ if (!isset($_SESSION["login"])) {
 
 
 
-
 </head>
 
 <body>
@@ -55,6 +54,36 @@ if (!isset($_SESSION["login"])) {
     <?php require_once('widgets/gui_sett.php'); ?>
 </div>
 
+<fieldset>
+<h3>Cj aka Jakub Rajčok</h3>
+
+
+<img style="border-radius: 50%;margin-left:50px;" src="img/cj.jpg" alt="cj" width="150px" height="150px">
+</fieldset>
+
+<fieldset>
+<h3>Big smoke aka Martin Števo</h3>
+
+
+<img style="border-radius: 50%;margin-left:50px;" src="img/bigsmoke.jpg" alt="cj" width="150px" height="150px">
+<p></p>
+</fieldset>
+
+<fieldset>
+<h3>Ceasar aka Tomáš Klobučník</h3>
+
+
+<img style="border-radius: 50%;margin-left:50px;" src="img/ceasar.jpg" alt="cj" width="150px" height="150px">
+<p></p>
+</fieldset>
+
+<fieldset>
+<h3> Kendl aka Alica Ondreáková</h3>
+
+
+<img style="border-radius: 50%;margin-left:50px;" src="img/kendl.jpeg" alt="cj" width="150px" height="150px">
+<p></p>
+</fieldset>
 
 
 

@@ -271,7 +271,7 @@ insert_page($conn,$page,$login);
     <div id="form" class="plane" style="margin: auto; width: 235px; font-size: 25px"><br>
         <form action="javascript:void(0);">
             <label for="r (rad)">r: </label><input style="font-size: 25px" id="r" name="r" type="number" step="0.01" min="-1.6" max="1.6" required>
-            <button style="font-size: 25px" id="submit">Set</button>
+            <button style="font-size: 25px" id="submit" class="lang" key="set"></button>
         </form></div><br>
         <div class ="toAllign">
             <label class="leftAlign lang" for="vehicle1" key="animation"></label><br>

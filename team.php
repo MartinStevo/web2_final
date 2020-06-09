@@ -58,28 +58,28 @@ if (!isset($_SESSION["login"])) {
 <div class="list" style="font-size: 20px; margin: auto; width: 400px; background-color: white; border: 1px solid black; padding: 15px">
     <b>Tomáš Klobučník</b>
     <ul>
-        <li>Responzívny dizajn</li>
-        <li>Prevrátené kyvadlo</li>
+        <li class="lang" key="resp-point"></li>
+        <li class="lang" key="pend-h1"></li>
     </ul>
     <b>Alica Ondreáková</b>
     <ul>
-        <li>Hlavná kostra webstránky</li>
+        <li class="lang" key="skel"></li>
         <li>CSS</li>
-        <li>Registrácia a prihlasovanie</li>
-        <li>Generátor API kľúča</li>
-        <li>Export do pdf</li>
-        <li>Zlúčenie kódu</li>
-        <li>Tlmič kolesa</li>
+        <li class="lang" key="reg-pr"></li>
+        <li class="lang" key="api-gen"></li>
+        <li class="lang" key="pdf-exp"></li>
+        <li class="lang" key="sum"></li>
+        <li class="lang" key="s1"></li>
     </ul>
     <b>Jakub Rajčok</b>
     <ul>
-        <li>Export do csv</li>
-        <li>Náklon lietadla</li>
+        <li class="lang" key="csv-exp"></li>
+        <li class="lang" key="s4"></li>
     </ul>
     <b>Martin Števo</b>
     <ul>
-        <li>API + doc</li>
-        <li>Gulička na tyči</li>
+        <li class="lang" key="mat-con"></li>
+        <li class="lang" key="s4"></li>
     </ul>
 </div><br>
 
