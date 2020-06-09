@@ -146,7 +146,7 @@ function show_user_queries($conn, $apikey)
                 <button style="margin:10px" type="submit" id="pdf-queries" name="generate_pdf" class="lang stats" key="pdf" formtarget="_blank"></button>
             </form>
 
-            <form method="post" action="exportcsv.php">
+            <form method="post" action="exportcsv.php"> <!-- todo export queries to csv/exportcsv.php -->
                 <button style="margin:10px" type="submit" id="csv-queries" name="generate_csv" class="lang stats" key="csv-exp" formtarget="_blank"></button>
             </form>
 
@@ -185,6 +185,11 @@ function show_user_queries($conn, $apikey)
 
         <div style="overflow: inherit;">
             <p id="page-hist" class="stats lang" key="page-hist" style="margin-left:10px;"></p>
+
+            <form method="post" action="exportcsv.php"> <!-- send to email these stats -->
+                <button style="margin:10px" type="submit" id="send-page-stats" name="generate_csv" class="lang stats" key="send-page-data" formtarget="_blank"></button>
+            </form>
+
             <button style="margin:10px" id="showpage" class="stats lang" key="show_but"></button>
             <button style="margin:10px" id="hidepage" class="stats lang" key="hide_but"></button>
             <table id="show-page-history" class="stats" style="margin-left:20px;">

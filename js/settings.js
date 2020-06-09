@@ -13,10 +13,12 @@ $(document).ready(function () {
 
     var showcsv = $("#csv-queries");
 
+
     var promptpagehist = $("#page-hist");
     var showpage = $("#showpage");
     var hidepage = $("#hidepage");
     var showpagehist = $("#show-page-history");
+    var sendemail = $("#send-page-stats");
 
 
     var prompstathistorylog = $("#login-history");
@@ -153,6 +155,7 @@ $(document).ready(function () {
         showpage.show();
         showquery.show();
         showpdflogin.show();
+        sendemail.show();
         showpdfqueries.show(); //try thus
 
         prompstathistorylog.show();
