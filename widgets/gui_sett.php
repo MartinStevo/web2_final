@@ -7,8 +7,12 @@
 
      <?php
 
-        $user = getUser();
-        $key = get_api_key($conn, $user);
+$login = $_SESSION["login"];
+$accessType = $_SESSION["accessType"];
+$apikey = $_SESSION["apikey"];
+
+        $user = $login;
+        $key = get_api_key($conn, $login);
 
         if (isset($_POST["action"])) {
             if ($_POST["action"] == "regenerate_key") {

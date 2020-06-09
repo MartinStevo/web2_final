@@ -50,7 +50,7 @@ class PDF extends FPDF
 
 
 
-    $stmt = $conn->prepare("SELECT date,success,error,query,form FROM Queries WHERE apikey=?");
+    $stmt = $conn->prepare("SELECT date,success,error,query,form,id FROM Queries WHERE apikey=?");
     if (!$stmt) {
         die("Db error: " . $conn->error);
     }
@@ -74,20 +74,20 @@ $pdf->AliasNbPages();
 
 $pdf->SetFont('Arial', 'B', 12);
 $pdf->Cell(10, 6, 'Id', 1);
-$pdf->Cell(20, 6, 'Date', 1);
-$pdf->Cell(20, 6, 'Success', 1);
-$pdf->Cell(30, 6, 'Error', 1);
+$pdf->Cell(25, 6, 'Date', 1);
+$pdf->Cell(10, 6, 'Success', 1);
+$pdf->Cell(40, 6, 'Error', 1);
 $pdf->Cell(50, 6, 'Query', 1);
-$pdf->Cell(20, 6, 'Form', 1);
+$pdf->Cell(25, 6, 'Form', 1);
 
 while ($row = $qresult->fetch_assoc()) {
     $pdf->Ln();
     $pdf->Cell(10, 6, $row["id"], 1);
-    $pdf->Cell(20, 6, $row["date"], 1);
-    $pdf->Cell(20, 6, $row["success"], 1);
-    $pdf->Cell(30, 6, $row["error"], 1);
+    $pdf->Cell(25, 6, $row["date"], 1);
+    $pdf->Cell(10, 6, $row["success"], 1);
+    $pdf->Cell(40, 6, $row["error"], 1);
     $pdf->Cell(50, 6, $row["query"], 1);
-    $pdf->Cell(20, 6, $row["form"], 1);
+    $pdf->Cell(25, 6, $row["form"], 1);
     
 }
 
