@@ -11,14 +11,14 @@ $accessType = $_SESSION["accessType"];
 $apikey = $_SESSION["apikey"];
 
 function send_page_stats() {
-    
-$to = "alicaondreakova@gmail.com";
-$subject = "My subject";
-$txt = "Hello world!";
-$headers = "From: alicaondreakova@gmail.com" . "\r\n" .
-"CC: somebodyelse@example.com";
 
-mail($to,$subject,$txt,$headers);
+    $to = "alicaondreakova@gmail.com";
+    $subject = "My subject";
+    $txt = "Hello world!";
+    $headers = "From: alicaondreakova@gmail.com" . "\r\n" .
+        "CC: somebodyelse@example.com";
+
+    mail($to,$subject,$txt,$headers);
 
 }
 
@@ -106,8 +106,7 @@ function show_user_queries($conn, $apikey)
     <div style=" width: auto;
     border: 1px solid black;
     overflow: hidden;background-color:white;">
-        <div style="width: 300px;
-    float:left;">
+        <div id="dif-info" >
 
             <p id="login-history" class="stats lang" key="log-hist" style="margin-left:10px;"></p>
 
@@ -158,7 +157,7 @@ function show_user_queries($conn, $apikey)
                     <th>Success</th>
                     <th>Error</th>
                 </tr>
-               
+
                 <?php
                 $qresult = show_user_queries($conn, $apikey);
                 while ($row = $qresult->fetch_assoc()) : ?>
@@ -173,8 +172,8 @@ function show_user_queries($conn, $apikey)
 
 
                     </tr>
-                    <?php endwhile; ?>
-                    
+                <?php endwhile; ?>
+
             </table>
 
 
