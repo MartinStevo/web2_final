@@ -1,4 +1,9 @@
 {
+    "rear-flap":"In this graph, it is possible to monitor the inclination of the rear flap as a function of time.",
+    "plane-2":"Tilting the rear flap",
+    "plane-1":"Tilt of the aircraft",
+    "an-to-chart":"Show animation for chart",
+    "plane-sim":"On this page it is possible to simulate the inclination of the aircraft using the angle r chosen by you.The value that is entered in the field is in radians. The range of the entered value is from -1.6 rads to 1.6 rads and after conversion to degrees it is + -90 degrees. In the animation, it is possible to observe the deviation of the aircraft from its flight axis based on the entered value.",
     "pdf":"Show pdf",
     "show_but":"Show",
     "hide_but":"Hide",
@@ -72,6 +77,11 @@
     "sim-menu":"Simulators",
     "ball-text":"Type ball position [0-100cm]",
     "chart":"Chart: ",
-    "animation":"Animation: "
-
+    "animation":"Animation: ",
+    "resetpasswd-button": "Reset password",
+    "resetpasswd-sent": "Email with reset link was sent.",
+    "resetpasswd-send-fail": "Could not send reset link. Check your email or try again later.",
+    "resetpasswd-req": "Your password was changed. You can now log in.",
+    "resetpasswd-fail": "Could not change password. Your link was invalid or expired.",
+    "bad-authenticator-code": "Bad authenticator code"
 }

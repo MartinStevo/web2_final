@@ -31,7 +31,7 @@
          <button id="hidelogin" class="stats lang" key="hide_but"></button>
          <button id="sentlogin" class="stats lang" key="send_but"></button>
          <form method="post" action="generate_pdf.php" >
-        <button type="submit" id="pdf-login" name="generate_pdf" class="lang" key="pdf">Show pdf</button>
+        <button  type="submit" id="pdf-login" name="generate_pdf" class="lang" key="pdf" formtarget="_blank"></button>
         </form>
                         
          <table id="showloginhistory" class="stats" style="margin-left:20px;">

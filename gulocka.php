@@ -21,10 +21,11 @@ insert_page($conn, $page, $login);
 <html lang="sk">
 
 <head>
-    <title>Alica Ondreakova Page</title>
+    <title class="lang" key="final">FINAL PROJECT</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="jquery-3.4.1.min.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

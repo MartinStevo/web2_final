@@ -221,7 +221,7 @@ if (isset($_POST["action"])) {
 
                         <!-- Remind Passowrd -->
                         <div id="formFooter" class="forget_passwd">
-                            <a class="underlineHover lang" key="passwd_reset" href="#"></a>
+                            <a class="underlineHover lang" key="passwd_reset" href="reset_passwd_req.php"></a>
                         </div>
 
                         <div id="formFooter" style="text-align:center">

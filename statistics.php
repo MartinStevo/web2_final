@@ -2,6 +2,8 @@
 
     require_once('phpconfig/keygen.php');
     require_once('phpconfig/userses.php');
+    require_once('config.php');
+
 
     ?>
 
@@ -148,11 +150,12 @@
     function change_password($conn, $login, $password)
     {
 
+        $passwd = hash('sha256', $password);
         $stmt = $conn->prepare("UPDATE Registracia SET password= ? WHERE login = ?");
         if (!$stmt) {
             die("Db error: " . $conn->error);
         }
-        $stmt->bind_param('ss', $password, $login);
+        $stmt->bind_param('ss', $passwd, $login);
         if (!$stmt->execute()) {
             die("Db error: " . $stmt->error);
         }

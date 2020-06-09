@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 if (!isset($_SESSION["login"])) {
@@ -16,7 +17,7 @@ if (!isset($_SESSION["login"])) {
 
 <head>
 
-    <title>Alica Ondreakova Page</title>
+    <title>FINAL PROJECT</title>
 
     <meta name_t="viewport" content="width=device-width, initial-scale=1.0">
     <meta name_t="keywords" content="html, css">
@@ -52,13 +53,13 @@ if (!isset($_SESSION["login"])) {
     </div>
 
     <div style="background-color: white;padding:20px;">
-        <h1>Documentation</h1>
-        <a href="#section1" key="getStart" class="lang" style="font-weight: bold;"></a><br>
-        <a href="#section2" key="sims" class="lang"></a><br>
-        <a href="#section3" class="lang" key="s1-section"></a><br>
-        <a href="#section4" class="lang" key="s2-section"></a><br>
-        <a href="#section5" class="lang" key="s3-section"></a><br>
-        <a href="#section6" class="lang" key="s4-section"></a><br>
+
+   
+
+    <section id="section1" style="margin:30px">
+        <h1 class="lang" key="doc"></h1>
+    </section>
+        
 
 
         <section id="section1" style="margin:30px">
@@ -114,6 +115,10 @@ if (!isset($_SESSION["login"])) {
             </text>
 
         </section>
+        <form method="post" action="download_doc.php" >
+        <button type="submit" id="pdf-login" name="generate_pdf" class="lang" key="pdf"> <img  style="margin:30px" src="img/pdficon.png" width="100px height:100px"> </button>
+
+        </form>
     </div>
 
 

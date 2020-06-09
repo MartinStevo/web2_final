@@ -263,12 +263,10 @@ insert_page($conn,$page,$login);
 
 <body>
 <div class="grid-container">
-    <h1> Náklon lietadla</h1>
+    <h1 class="lang" key="plane-1"></h1>
 
-    <p class="plane">Na tejto stránke je možné simulovať náklon lietadla pomocou vami zvoleného uhlu r. <br>
-        Hodnota, ktorá je vkladaná do poľa je v radiánoch. Rozsah vloženej hodnoty <br>
-        je od -1,6 rad  do 1,6 rad a po prekonvertovaní do stupňov to je +-90 stupňov. <br>
-        V animácii je možné sledovať vychýlenie lietadla z jeho letovej osi na základe vloženej hodnoty.</p><br>
+    <p class="plane lang" key="plane-sim"></p>
+
     <div class="grid-item">
     <div id="form" class="plane" style="margin: auto; width: 235px; font-size: 25px"><br>
         <form action="javascript:void(0);">
@@ -276,19 +274,19 @@ insert_page($conn,$page,$login);
             <button style="font-size: 25px" id="submit">Set</button>
         </form></div><br>
         <div class ="toAllign">
-            <label class="leftAlign" for="vehicle1"> Zobraz animáciu</label><br>
+            <label class="leftAlign lang" for="vehicle1" key="animation"></label><br>
         <input type="checkbox" id="vehicle1" name="Animácia" value="animation" onclick="myFunction(1)" checked><br>
         </div>
         <div id="sketch-holder" style="margin: auto; width: 1000px"></div><br>
     </div>
 
     <div class="grid-item">
-    <h1 class="klapka"> Naklonenie zadnej klapky</h1>
-    <p class="klapka">V tomto grafe je možné sledovať naklonenie zadnej klapky v závislosti od času.</p>
-        <label class="leftAlign" for="vehicle2"> Zobraz graf</label><br>
+    <h1 class="klapka lang" key="plane-2"></h1>
+    <p class="klapka lang" key="rear-flap"></p>
+        <label class="leftAlign lang" for="vehicle2" key="chart"></label><br>
         <input type="checkbox" id="vehicle2" name="Graf" value="graph" onclick="myFunction(2)" checked>
         <br>
-        <label class="leftAlign" for="vehicle3"> Zobraz animaciu pre graf</label><br>
+        <label class="leftAlign lang" for="vehicle3" key="an-to-chart"></label><br>
         <input type="checkbox" id="vehicle3" name="animacia2" value="graph" onclick="myFunction(3)" checked>
         <br><br>
     <div id="chart" class="klapka" style="margin: auto; width: 1000px"></div><br>

@@ -40,7 +40,7 @@ require_once('phpconfig/userses.php');
         </div>
         <a style="float:right"><?php echo $_SESSION["login"]; ?></a>
         <img style="float:right" src="img/profileicon.png" width="40px" height="40px">
-        <a href="#" style="float:right" class="lang act" key="user-menu"></a>
+        <a  href="user.php" style="float:right" class="lang act" key="user-menu"></a>
     </div>
 
 <?php endif; ?>

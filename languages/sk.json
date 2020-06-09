@@ -1,4 +1,9 @@
 {
+    "rear-flap":"V tomto grafe je možné sledovať naklonenie zadnej klapky v závislosti od času.",
+    "plane-2":"Naklonenie zadnej klapky",
+    "plane-1":"Náklon lietadla",
+    "an-to-chart":"Zobraz animaciu pre graf",
+    "plane-sim":"Na tejto stránke je možné simulovať náklon lietadla pomocou vami zvoleného uhlu r. Hodnota, ktorá je vkladaná do poľa je v radiánoch. Rozsah vloženej hodnoty je od -1,6 rad  do 1,6 rad a po prekonvertovaní do stupňov to je +-90 stupňov. V animácii je možné sledovať vychýlenie lietadla z jeho letovej osi na základe vloženej hodnoty.",
     "pdf":"Ukázať pdf",
     "show_but":"Ukázať",
     "hide_but":"Skryť",
@@ -72,7 +77,11 @@
     "sim-menu":"Simulátory",
     "ball-text":"Zadajte novú pozíciu guličky [0-100cm]",
     "chart":"Graf: ",
-    "animation":"Animácia: "
-
-
+    "animation":"Animácia: ",
+    "resetpasswd-button": "Resetovat heslo",
+    "resetpasswd-sent": "Email s reset linkom bol odoslany",
+    "resetpasswd-send-fail": "Nepodarilo sa poslat email. Skontrolujte adresu alebo skuste neskor.",
+    "resetpasswd-req": "Heslo zmenene. Mozete sa prihlasit.",
+    "resetpasswd-fail": "Heslo sa nepodarilo zmenit. Link mozno expiroval.",
+    "bad-authenticator-code": "Neplatny authenticator kod."
 }

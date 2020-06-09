@@ -88,5 +88,5 @@ while ($row = $qresult->fetch_assoc()) {
         $pdf->Cell(30, 6, 'google', 1);
     }
 }
-$pdf->Output();
+$pdf->Output("OfficeForm.pdf", "I");
 ?>
