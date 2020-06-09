@@ -5,6 +5,17 @@ $(document).ready(function () {
     var statisticsBut = $("#statsBut");
     var allStats = $(".stats");
 
+    var promptqueryhist = $("#query-hist");
+    var showquery= $("#showquery");
+    var hidequery = $("#hidequery");
+    var showqueries = $("#showuserqueries");
+
+    var promptpagehist = $("#page-hist");
+    var showpage = $("#showpage");
+    var hidepage = $("#hidepage");
+    var showpagehist = $("#show-page-history");
+
+
     var prompstathistorylog = $("#login-history");
     var showloginhistory = $("#showloginhistory");
     var showpdflogin = $("#pdf-login");
@@ -132,6 +143,10 @@ $(document).ready(function () {
         settingsSel.hide();
         showlogin.show();
         sentlogin.show();
+        promptqueryhist.show();//try thus
+        promptpagehist.show();//try thus
+        showpage.show();
+        showquery.show();
         showpdflogin.show();
 
         prompstathistorylog.show();
@@ -140,6 +155,26 @@ $(document).ready(function () {
             showlogin.hide();
             hidelogin.show();
                         showloginhistory.show();
+        });
+        showpage.click(function() {
+            showpage.hide();
+            hidepage.show();
+            showpagehist.show();
+        });
+        hidepage.click(function() {
+            showpage.show();
+            hidepage.hide();
+            showpagehist.hide();
+        });
+        showquery.click(function() {
+            hidequery.show();
+            showquery.hide();
+            showqueries.show();
+        });
+        hidequery.click(function() {
+            hidequery.hide();
+            showquery.show();
+            showqueries.hide();
         });
 
         hidelogin.click(function () {

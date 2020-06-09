@@ -1,4 +1,6 @@
 {
+    "page-hist":"Page visits",
+    "query-hist":"Query history",
     "log-hist":"Login history:",
     "rear-flap":"In this graph, it is possible to monitor the inclination of the rear flap as a function of time.",
     "plane-2":"Tilting the rear flap",
