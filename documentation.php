@@ -12,6 +12,8 @@ if (!isset($_SESSION["login"])) {
     }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="sk">
 
@@ -116,7 +118,7 @@ if (!isset($_SESSION["login"])) {
 
         </section>
        
-        <img id="download_doc" width=150px heigh="100px" src="img/pdficon.png" alt="pdf_download" style="margin: 30px" >
+       <a href="eng_doc_pdf.php"> <img id="download_doc" width=150px heigh="100px" src="img/pdficon.png" alt="pdf_download" style="margin: 30px" ></a>
     </div>
 
 
