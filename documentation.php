@@ -116,6 +116,7 @@ if (!isset($_SESSION["login"])) {
 
         </section>
        
+        <img id="download_doc" width=150px heigh="100px" src="img/pdficon.png" alt="pdf_download" style="margin: 30px" >
     </div>
 
 
