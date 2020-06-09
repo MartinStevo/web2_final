@@ -59,6 +59,7 @@ if (!isset($_SESSION["login"])) {
 
 
 <img style="border-radius: 50%;margin-left:50px;" src="img/cj.jpg" alt="cj" width="150px" height="150px">
+<p class="lang" key="jakub"></p>
 </fieldset>
 
 <fieldset>
@@ -66,7 +67,7 @@ if (!isset($_SESSION["login"])) {
 
 
 <img style="border-radius: 50%;margin-left:50px;" src="img/bigsmoke.jpg" alt="cj" width="150px" height="150px">
-<p></p>
+<p class="lang" key="martin"></p>
 </fieldset>
 
 <fieldset>
@@ -74,7 +75,7 @@ if (!isset($_SESSION["login"])) {
 
 
 <img style="border-radius: 50%;margin-left:50px;" src="img/ceasar.jpg" alt="cj" width="150px" height="150px">
-<p></p>
+<p class="lang" key="tomas"></p>
 </fieldset>
 
 <fieldset>
@@ -82,7 +83,7 @@ if (!isset($_SESSION["login"])) {
 
 
 <img style="border-radius: 50%;margin-left:50px;" src="img/kendl.jpeg" alt="cj" width="150px" height="150px">
-<p></p>
+<p class="lang" key="alica"></p>
 </fieldset>
 
 
