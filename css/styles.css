@@ -24,6 +24,11 @@ body, html {
 
 }
 
+#div-info{
+    width: 300px;
+    float:left;
+}
+
 .hopnav a:hover {
     color: white;
 }
@@ -204,6 +209,11 @@ table {
         font-size: 11px;
     }
 
+    #div-info{
+        width: 300px;
+        float: none;
+    }
+
     .topnav {
         overflow: hidden;
         background-color: black;
@@ -227,6 +237,10 @@ table {
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
+    }
+
+    textarea#areaqueries{
+        width: 98%
     }
 
     .translate-active {
@@ -275,19 +289,21 @@ table {
     }
 
     #first {
-        width: 500px;
+        width: 100%;
         /* vertical-align: top; */
         float: right;
-        margin-right: 6%;
+        margin-right: 0%;
         margin-top: 10%;
         color: white;
         display: inline-block;
 
     }
-
+     h4{
+         text-align: center;
+     }
     #second {
         min-height: 100%;
-        margin-left: 51px;
+        margin-left: 1%;
         overflow: hidden;
         display: inline-block;
 
